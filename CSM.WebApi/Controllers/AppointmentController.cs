@@ -25,7 +25,7 @@ namespace CSM.WebApi.Controllers
             var appointments = _appointmentManager.GetAllAppoinment();
             if(appointments.Count == 0)
             {
-                return NotFound();
+                return Json("Data not available");
             }
             return Json(appointments);
         }

@@ -11,11 +11,11 @@ namespace CSM.DAL.RepositoryClass
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private readonly Database.ServiceBookingDBEntities _dbContext;
+        private readonly Database.AutoMotiveProjectEntities _dbContext;
 
         public CustomerRepository()
         {
-            _dbContext = new Database.ServiceBookingDBEntities();
+            _dbContext = new Database.AutoMotiveProjectEntities();
         }
 
         public List<Customer> GetAllCustomers()

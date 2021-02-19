@@ -53,44 +53,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\SQLServerModel.Context.cs">
+    <Compile Include="Database\AzureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.Context.tt</DependentUpon>
+      <DependentUpon>AzureModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\SQLServerModel.cs">
+    <Compile Include="Database\AzureModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\SQLServerModel.Designer.cs">
+    <Compile Include="Database\AzureModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\tblAppointment.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblCustomer.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblDealer.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblDealersMechanic.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblMechanic.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblPlanning.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblService.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblVehicle.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepositoryClass\DealerRepository.cs" />
     <Compile Include="RepositoryClass\MechanicRepository.cs" />
@@ -116,29 +116,28 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Database\SQLServerModel.edmx">
+    <EntityDeploy Include="Database\AzureModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQLServerModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AzureModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Database\SQLServerModel.edmx.diagram">
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+    <None Include="Database\AzureModel.edmx.diagram">
+      <DependentUpon>AzureModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Database\SQLServerModel.Context.tt">
+    <Content Include="Database\AzureModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
-      <LastGenOutput>SQLServerModel.Context.cs</LastGenOutput>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Database\SQLServerModel.tt">
+    <Content Include="Database\AzureModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
-      <LastGenOutput>SQLServerModel.cs</LastGenOutput>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

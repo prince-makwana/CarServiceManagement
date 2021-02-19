@@ -193,44 +193,44 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\SQLServerModel.Context.cs">
+    <Compile Include="Models\AzureModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.Context.tt</DependentUpon>
+      <DependentUpon>AzureModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SQLServerModel.cs">
+    <Compile Include="Models\AzureModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\SQLServerModel.Designer.cs">
+    <Compile Include="Models\AzureModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\tblAppointment.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblCustomer.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblDealer.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblDealersMechanic.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblMechanic.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblPlanning.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblService.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\tblVehicle.cs">
-      <DependentUpon>SQLServerModel.tt</DependentUpon>
+      <DependentUpon>AzureModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -243,15 +243,15 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\SQLServerModel.Context.tt">
+    <Content Include="Models\AzureModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
-      <LastGenOutput>SQLServerModel.Context.cs</LastGenOutput>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\SQLServerModel.tt">
+    <Content Include="Models\AzureModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
-      <LastGenOutput>SQLServerModel.cs</LastGenOutput>
+      <DependentUpon>AzureModel.edmx</DependentUpon>
+      <LastGenOutput>AzureModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -274,12 +274,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\SQLServerModel.edmx">
+    <EntityDeploy Include="Models\AzureModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQLServerModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>AzureModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\SQLServerModel.edmx.diagram">
-      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+    <Content Include="Models\AzureModel.edmx.diagram">
+      <DependentUpon>AzureModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

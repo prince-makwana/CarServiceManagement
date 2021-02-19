@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CSM.WebApi.Models
+namespace CSM.DAL.Database
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ServiceBookingDBEntities : DbContext
+    public partial class AutoMotiveProjectEntities : DbContext
     {
-        public ServiceBookingDBEntities()
-            : base("name=ServiceBookingDBEntities")
+        public AutoMotiveProjectEntities()
+            : base("name=AutoMotiveProjectEntities")
         {
         }
     

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="ServiceBookingDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AutoMotiveProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAppointments">
           <Key>
             <PropertyRef Name="Id" />
@@ -242,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServiceBookingDBModelStoreContainer">
+        <EntityContainer Name="AutoMotiveProjectModelStoreContainer">
           <EntitySet Name="tblAppointments" EntityType="Self.tblAppointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCustomers" EntityType="Self.tblCustomers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDealers" EntityType="Self.tblDealers" Schema="dbo" store:Type="Tables" />
@@ -284,10 +284,11 @@
             <End Role="tblVehicles" EntitySet="tblVehicles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ServiceBookingDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AutoMotiveProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblAppointment">
           <Key>
             <PropertyRef Name="Id" />
@@ -332,7 +333,7 @@
           <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CustomerNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblAppointments" Relationship="Self.FK_tblAppointments_tblCustomers" FromRole="tblCustomers" ToRole="tblAppointments" />
@@ -381,7 +382,7 @@
           <Property Name="EmailId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="isActive" Type="Boolean" />
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblDealersMechanics" Relationship="Self.FK_tblDealersMechanics_tblMechanics" FromRole="tblMechanics" ToRole="tblDealersMechanics" />
@@ -395,8 +396,8 @@
           <Property Name="AppointmentId" Type="Int32" Nullable="false" />
           <Property Name="MechanicId" Type="Int32" Nullable="false" />
           <Property Name="ServiceId" Type="Int32" Nullable="false" />
-          <Property Name="StartDate" Type="DateTime" Precision="3" Nullable="false" />
-          <Property Name="EndDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Duration" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblAppointment" Relationship="Self.FK_tblPlannings_tblAppointments" FromRole="tblPlannings" ToRole="tblAppointments" />
           <NavigationProperty Name="tblMechanic" Relationship="Self.FK_tblPlannings_tblMechanics" FromRole="tblPlannings" ToRole="tblMechanics" />
@@ -417,7 +418,7 @@
           <Property Name="Discount" Type="Single" Nullable="false" />
           <Property Name="FixPrice" Type="Single" Nullable="false" />
           <Property Name="CreatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UpdateBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblAppointment" Relationship="Self.FK_tblServices_tblAppointments" FromRole="tblServices" ToRole="tblAppointments" />
@@ -432,7 +433,7 @@
           <Property Name="LicencePlate" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="MeterValue" Type="Int32" />
-          <Property Name="RegDate" Type="DateTime" Precision="0" Nullable="false" />
+          <Property Name="RegDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Weight" Type="Single" />
           <Property Name="MCHCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Vin" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
@@ -541,7 +542,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ServiceBookingDBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AutoMotiveProjectEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblAppointments" EntityType="Self.tblAppointment" />
           <EntitySet Name="tblCustomers" EntityType="Self.tblCustomer" />
           <EntitySet Name="tblDealers" EntityType="Self.tblDealer" />
@@ -588,9 +589,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ServiceBookingDBModelStoreContainer" CdmEntityContainer="ServiceBookingDBEntities">
+        <EntityContainerMapping StorageEntityContainer="AutoMotiveProjectModelStoreContainer" CdmEntityContainer="AutoMotiveProjectEntities">
           <EntitySetMapping Name="tblAppointments">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblAppointment">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblAppointment">
               <MappingFragment StoreEntitySet="tblAppointments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
@@ -617,7 +618,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblCustomers">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblCustomer">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblCustomer">
               <MappingFragment StoreEntitySet="tblCustomers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -636,7 +637,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDealers">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblDealer">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblDealer">
               <MappingFragment StoreEntitySet="tblDealers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DealerName" ColumnName="DealerName" />
@@ -657,7 +658,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDealersMechanics">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblDealersMechanic">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblDealersMechanic">
               <MappingFragment StoreEntitySet="tblDealersMechanics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
@@ -666,7 +667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblMechanics">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblMechanic">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblMechanic">
               <MappingFragment StoreEntitySet="tblMechanics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="MechanicName" ColumnName="MechanicName" />
@@ -682,7 +683,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblPlannings">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblPlanning">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblPlanning">
               <MappingFragment StoreEntitySet="tblPlannings">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
@@ -695,7 +696,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblServices">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblService">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblService">
               <MappingFragment StoreEntitySet="tblServices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
@@ -716,7 +717,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblVehicles">
-            <EntityTypeMapping TypeName="ServiceBookingDBModel.tblVehicle">
+            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblVehicle">
               <MappingFragment StoreEntitySet="tblVehicles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
