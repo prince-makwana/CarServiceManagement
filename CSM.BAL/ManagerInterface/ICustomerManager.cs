@@ -10,5 +10,8 @@ namespace CSM.BAL.ManagerInterface
     public interface ICustomerManager
     {
         List<Customer> GetAllCustomers();
+        string CreateCustomer(Customer model);
+        string UpdateCustomer(Customer model);
+        string DeleteCustomer(int id);
     }
 }

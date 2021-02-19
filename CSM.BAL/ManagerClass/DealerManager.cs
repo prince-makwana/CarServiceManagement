@@ -1,5 +1,6 @@
 ﻿using CSM.BAL.ManagerInterface;
 using CSM.DAL.RepositoryInterface;
+using CSM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,26 @@ namespace CSM.BAL.ManagerClass
         public DealerManager(IDealerRepository dealerRepository)
         {
             _dealerRepository = dealerRepository;
+        }
+
+        public string CreateDealer(Dealer model)
+        {
+            return _dealerRepository.CreateDealer(model);
+        }
+
+        public string DeleteDealer(int id)
+        {
+            return _dealerRepository.DeleteDealer(id);
+        }
+
+        public List<Dealer> GetAllDealers()
+        {
+            return _dealerRepository.GetAllDealers();
+        }
+
+        public string UpdateDealer(Dealer model)
+        {
+            return _dealerRepository.UpdateDealer(model);
         }
     }
 }

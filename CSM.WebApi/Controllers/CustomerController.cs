@@ -1,4 +1,5 @@
 ﻿using CSM.BAL.ManagerInterface;
+using CSM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,9 +26,30 @@ namespace CSM.WebApi.Controllers
 
             if(customers.Count == 0)
             {
-                return NotFound();
+                return Json("Data not Found.");
             }
             return Json(customers);
+        }
+
+        [HttpPost]
+        [Route("api/Customer/CreateCustomers")]
+        public string CreateCustomers([FromBody] Customer model)
+        {
+            return _customerManager.CreateCustomer(model);
+        }
+
+        [HttpPut]
+        [Route("api/Customer/UpdateCustomers")]
+        public string UpdateCustomers([FromBody] Customer model)
+        {
+            return _customerManager.UpdateCustomer(model);
+        }
+
+        [HttpDelete]
+        [Route("api/Customer/DeleteCustomers/{id}")]
+        public string DeleteCustomer(int id)
+        {
+            return _customerManager.DeleteCustomer(id);
         }
     }
 }

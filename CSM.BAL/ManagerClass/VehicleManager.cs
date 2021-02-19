@@ -1,5 +1,6 @@
 ﻿using CSM.BAL.ManagerInterface;
 using CSM.DAL.RepositoryInterface;
+using CSM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,26 @@ namespace CSM.BAL.ManagerClass
         public VehicleManager(IVehicleRepository vehicleRepository)
         {
             _vehicleRepository = vehicleRepository;
+        }
+
+        public string CreateVehicle(Vehicle model)
+        {
+            return _vehicleRepository.CreateVehicle(model);
+        }
+
+        public string DeleteVehicle(int id)
+        {
+            return _vehicleRepository.DeleteVehicle(id);
+        }
+
+        public List<Vehicle> GetAllVehicles()
+        {
+            return _vehicleRepository.GetAllVehicles();
+        }
+
+        public string UpdateVehicle(Vehicle model)
+        {
+            return _vehicleRepository.UpdateVehicle(model);
         }
     }
 }
