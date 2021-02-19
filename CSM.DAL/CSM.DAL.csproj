@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{36407421-3957-4C5F-BF1C-259C30B6B71C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CSM.DAL</RootNamespace>
+    <AssemblyName>CSM.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Database\SQLServerModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLServerModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SQLServerModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\SQLServerModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblAppointment.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblCustomer.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblDealer.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblDealersMechanic.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblMechanic.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblPlanning.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblService.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\tblVehicle.cs">
+      <DependentUpon>SQLServerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RepositoryClass\DealerRepository.cs" />
+    <Compile Include="RepositoryClass\MechanicRepository.cs" />
+    <Compile Include="RepositoryClass\PlanningRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryClass\AppointmentRepository.cs" />
+    <Compile Include="RepositoryClass\CustomerRepository.cs" />
+    <Compile Include="RepositoryInterface\IAppointmentRepository.cs" />
+    <Compile Include="RepositoryInterface\ICustomerRepository.cs" />
+    <Compile Include="RepositoryInterface\IDealerRepository.cs" />
+    <Compile Include="RepositoryInterface\IMechanicRepository.cs" />
+    <Compile Include="RepositoryInterface\IPlanningRepository.cs" />
+    <Compile Include="RepositoryInterface\IServiceRepository.cs" />
+    <Compile Include="RepositoryInterface\IVehicleRepository.cs" />
+    <Compile Include="RepositoryClass\ServiceRepository.cs" />
+    <Compile Include="RepositoryClass\VehicleRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CSM.Models\CSM.Models.csproj">
+      <Project>{39cfecfa-e035-43e0-a3eb-5ea7411ff9fa}</Project>
+      <Name>CSM.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <EntityDeploy Include="Database\SQLServerModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SQLServerModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database\SQLServerModel.edmx.diagram">
+      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Database\SQLServerModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+      <LastGenOutput>SQLServerModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Database\SQLServerModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SQLServerModel.edmx</DependentUpon>
+      <LastGenOutput>SQLServerModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
