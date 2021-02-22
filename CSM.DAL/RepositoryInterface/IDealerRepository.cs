@@ -13,5 +13,6 @@ namespace CSM.DAL.RepositoryInterface
         string CreateDealer(Dealer model);
         string UpdateDealer(Dealer model);
         string DeleteDealer(int id);
+        List<DealerObj> DealersDropdown();
     }
 }

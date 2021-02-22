@@ -12,10 +12,12 @@ namespace CSM.DAL.RepositoryClass
     public class DealerRepository : IDealerRepository
     {
         private readonly Database.AutoMotiveProjectEntities _dbContext;
+        //private readonly Database.ServiceBookingDBEntities _dbContext;
 
         public DealerRepository()
         {
             _dbContext = new Database.AutoMotiveProjectEntities();
+            //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
         public string CreateDealer(Dealer model)
@@ -35,6 +37,29 @@ namespace CSM.DAL.RepositoryClass
             }
 
             return "Plz try after Some time or Contact admin";
+        }
+
+        public List<DealerObj> DealersDropdown()
+        {
+            List<DealerObj> dealerList = new List<DealerObj>();
+
+            var dealersData = _dbContext.tblDealers.Select(d => new { d.Id, d.DealerName, d.DealerNo}).ToList();
+
+            if(dealersData != null)
+            {
+                foreach (var item in dealersData)
+                {
+                    DealerObj dealerObj = new DealerObj();
+                    
+                    dealerObj.Id = item.Id;
+                    dealerObj.DealerName = item.DealerName;
+                    dealerObj.DealerNo = item.DealerNo;
+
+                    dealerList.Add(dealerObj);
+                }
+            }
+
+            return dealerList;
         }
 
         public string DeleteDealer(int id)

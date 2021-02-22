@@ -9,11 +9,13 @@ namespace CSM.DAL.RepositoryClass
 {
     public class ServiceRepository : IServiceRepository
     {
-        private readonly Database.AutoMotiveProjectEntities _automotiveEntities;
+        private readonly Database.AutoMotiveProjectEntities _dbContext;
+        //private readonly Database.ServiceBookingDBEntities _dbContext;
 
         public ServiceRepository()
         {
-            _automotiveEntities = new Database.AutoMotiveProjectEntities();
+            _dbContext = new Database.AutoMotiveProjectEntities();
+            //_dbContext = new Database.ServiceBookingDBEntities();
         }
     }
 }

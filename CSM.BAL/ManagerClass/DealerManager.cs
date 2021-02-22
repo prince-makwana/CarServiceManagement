@@ -23,6 +23,11 @@ namespace CSM.BAL.ManagerClass
             return _dealerRepository.CreateDealer(model);
         }
 
+        public List<DealerObj> DealersDropdown()
+        {
+            return _dealerRepository.DealersDropdown();
+        }
+
         public string DeleteDealer(int id)
         {
             return _dealerRepository.DeleteDealer(id);

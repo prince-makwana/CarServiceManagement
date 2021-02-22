@@ -232,13 +232,13 @@
         </Association>
         <Association Name="FK_tblVehicles_tblCustomers">
           <End Role="tblCustomers" Type="Self.tblCustomers" Multiplicity="1" />
-          <End Role="tblVehicles" Type="Self.tblVehicles" Multiplicity="0..1" />
+          <End Role="tblVehicles" Type="Self.tblVehicles" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCustomers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="tblVehicles">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -337,7 +337,7 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <NavigationProperty Name="tblAppointments" Relationship="Self.FK_tblAppointments_tblCustomers" FromRole="tblCustomers" ToRole="tblAppointments" />
-          <NavigationProperty Name="tblVehicle" Relationship="Self.FK_tblVehicles_tblCustomers" FromRole="tblCustomers" ToRole="tblVehicles" />
+          <NavigationProperty Name="tblVehicles" Relationship="Self.FK_tblVehicles_tblCustomers" FromRole="tblCustomers" ToRole="tblVehicles" />
         </EntityType>
         <EntityType Name="tblDealer">
           <Key>
@@ -496,13 +496,13 @@
         </Association>
         <Association Name="FK_tblVehicles_tblCustomers">
           <End Role="tblCustomers" Type="Self.tblCustomer" Multiplicity="1" />
-          <End Role="tblVehicles" Type="Self.tblVehicle" Multiplicity="0..1" />
+          <End Role="tblVehicles" Type="Self.tblVehicle" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblCustomers">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="tblVehicles">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="CustomerId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

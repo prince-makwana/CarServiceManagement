@@ -12,10 +12,12 @@ namespace CSM.DAL.RepositoryClass
     public class VehicleRepository : IVehicleRepository
     {
         private readonly Database.AutoMotiveProjectEntities _dbContext;
+        //private readonly Database.ServiceBookingDBEntities _dbContext;
 
         public VehicleRepository()
         {
             _dbContext = new Database.AutoMotiveProjectEntities();
+            //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
         public string CreateVehicle(Vehicle model)
@@ -67,6 +69,46 @@ namespace CSM.DAL.RepositoryClass
                 }
             }
             return vehicleList;
+        }
+
+        public CustomerVehicle GetCustomerVehicle(string LicencePlate)
+        {
+            CustomerVehicle customerVehicle = new CustomerVehicle();
+
+            Database.tblVehicle vehicle = (from v in _dbContext.tblVehicles
+                                           where v.LicencePlate.Equals(LicencePlate)
+                                           select v).FirstOrDefault();
+
+            Database.tblCustomer customer = _dbContext.tblCustomers.Find(vehicle.CustomerId);
+
+            #region Preparation of CustomerVehicle object
+
+            customerVehicle.CustomerId = customer.Id;
+            customerVehicle.CustomerName = customer.CustomerName;
+            customerVehicle.FName = customer.FName;
+            customerVehicle.LName = customer.LName;
+            customerVehicle.Address = customer.Address;
+            customerVehicle.ZipCode = customer.ZipCode;
+            customerVehicle.City = customer.City;
+            customerVehicle.Country = customer.Country;
+            customerVehicle.CustomerNo = customer.CustomerNo;
+
+            customerVehicle.VehicleId = vehicle.Id;
+            customerVehicle.Brand = vehicle.Brand;
+            customerVehicle.Model = vehicle.Model;
+            customerVehicle.LicencePlate = vehicle.LicencePlate;
+            customerVehicle.MeterValue = vehicle.MeterValue;
+            customerVehicle.RegDate = vehicle.RegDate;
+            customerVehicle.Weight = vehicle.Weight;
+            customerVehicle.Vin = vehicle.Vin;
+            customerVehicle.EngNo = vehicle.EngNo;
+            customerVehicle.MCHCode = vehicle.MCHCode;
+            customerVehicle.Colour = vehicle.Colour;
+
+
+            #endregion
+
+            return customerVehicle;
         }
 
         public string UpdateVehicle(Vehicle model)

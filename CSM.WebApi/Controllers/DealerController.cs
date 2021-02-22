@@ -51,5 +51,21 @@ namespace CSM.WebApi.Controllers
         {
             return _dealerManager.DeleteDealer(id);
         }
+
+        [HttpGet]
+        [Route("api/Dealer/DealerDropdown")]
+        public IHttpActionResult DealersDropdown()
+        {
+            var dealerDropdown = _dealerManager.DealersDropdown();
+
+            if (dealerDropdown.Count == 0)
+            {
+                return Json("Error in fetching the list. Try after sometime.");
+            }
+            else
+            {
+                return Json(dealerDropdown);
+            }
+        }
     }
 }

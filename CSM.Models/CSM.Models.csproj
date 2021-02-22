@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="Appointment.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerVehicle.cs" />
     <Compile Include="Dealer.cs" />
     <Compile Include="DealerMechanic.cs" />
+    <Compile Include="DealerObj.cs" />
     <Compile Include="Mechanic.cs" />
     <Compile Include="Planning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

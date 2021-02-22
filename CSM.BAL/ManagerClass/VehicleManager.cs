@@ -33,6 +33,11 @@ namespace CSM.BAL.ManagerClass
             return _vehicleRepository.GetAllVehicles();
         }
 
+        public CustomerVehicle GetCustomerVehicle(string LicencePlate)
+        {
+            return _vehicleRepository.GetCustomerVehicle(LicencePlate);
+        }
+
         public string UpdateVehicle(Vehicle model)
         {
             return _vehicleRepository.UpdateVehicle(model);

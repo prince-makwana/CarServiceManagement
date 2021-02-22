@@ -13,5 +13,6 @@ namespace CSM.DAL.RepositoryInterface
         string CreateVehicle(Vehicle model);
         string UpdateVehicle(Vehicle model);
         string DeleteVehicle(int id);
+        CustomerVehicle GetCustomerVehicle(string LicencePlate);
     }
 }

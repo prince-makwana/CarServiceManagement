@@ -51,5 +51,21 @@ namespace CSM.WebApi.Controllers
         {
             return _vehicleManager.DeleteVehicle(id);
         }
+
+        [HttpGet]
+        [Route("Vehicle/GetVehicleInfo")]
+        public IHttpActionResult GetCustomerVehicle(string LicencePLate)
+        {
+            var entity = _vehicleManager.GetCustomerVehicle(LicencePLate);
+
+            if (entity != null)
+            {
+                return Json(entity);
+            }
+            else
+            {
+                return Json("No Data Found. Licence Plate not exists.");
+            }
+        }
     }
 }
