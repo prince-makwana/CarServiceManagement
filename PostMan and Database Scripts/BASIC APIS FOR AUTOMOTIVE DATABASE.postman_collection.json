@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "97f42a87-6d19-4fe9-b79d-5957f07d8fee",
+		"name": "BASIC APIS FOR AUTOMOTIVE DATABASE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44370/api/Dealer/CreateDealers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"DealerName\": \"Prince Makwana\",\r\n    \"DealerNo\": \"DEALER-01\",\r\n    \"isActive\": null,\r\n    \"isOnline\": null,\r\n    \"Website\": \"www.dealer-01.com\",\r\n    \"Email\": \"ddealer01@gmail.com\",\r\n    \"PhoneNo\": \"9426836645\",\r\n    \"Address\": \"B/25, ABC Lane\",\r\n    \"Latitude\": 29.098,\r\n    \"Longitude\": -129.23\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Dealer/CreateDealers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Dealer",
+						"CreateDealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Dealer/allDealers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Dealer/allDealers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Dealer",
+						"allDealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Customer/UpdateDealers",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Id\": 1,\r\n        \"DealerName\": \"Prince Makwana\",\r\n        \"DealerNo\": \"DEALER-01\",\r\n        \"isActive\": 1,\r\n        \"isOnline\": 0,\r\n        \"Website\": \"www.dealer-01.com\",\r\n        \"Email\": \"ddealer01@gmail.com\",\r\n        \"PhoneNo\": \"9426836645\",\r\n        \"Address\": \"B/25, ABC Lane\",\r\n        \"Latitude\": 29.098,\r\n        \"Longitude\": -129.23,\r\n        \"CreatedBy\": \"Prince Makwana\",\r\n        \"CreatedDate\": \"2021-03-01T12:22:42.003\",\r\n        \"UpdatedBy\": null,\r\n        \"UpdatedDate\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Customer/UpdateDealers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Customer",
+						"UpdateDealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Dealer/DeleteDealers/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Dealer/DeleteDealers/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Dealer",
+						"DeleteDealers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Customer/CreateCustomers",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CustomerName\": \"Lalit Radadiya\",\r\n    \"FName\": \"Lalit\",\r\n    \"LName\": \"Radadiya\",\r\n    \"Address\": \"House No. 2, XYZ Lane\",\r\n    \"ZipCode\": \"123456\",\r\n    \"City\": \"Ahmedabad\",\r\n    \"Country\": \"India\",\r\n    \"CustomerNo\": \"9999988888\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Customer/CreateCustomers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Customer",
+						"CreateCustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Customer/allCustomers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Customer/allCustomers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Customer",
+						"allCustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Vehicle/CreateVehicles",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Description\": \"ABCDEFGHIJKLMNOPQRSTUVWXYZ\",\r\n     \"Brand\": \"Jaguar\",\r\n     \"LicencePlate\": \"GJ-12-2320\",\r\n     \"Model\": \"Sedan\",\r\n     \"MeterValue\": 123,\r\n     \"RegDate\": \"20-01-2010\",\r\n     \"Weight\": 234.98,\r\n     \"MCHCode\": \"******\",\r\n     \"Vin\": \"******\",\r\n     \"EngNo\": \"******\",\r\n     \"Colour\": \"White\",\r\n     \"CreatedBy\": \"Prince Makwana\",\r\n     \"CustomerId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Vehicle/CreateVehicles",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Vehicle",
+						"CreateVehicles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/Vehicle/GetVehicleInfo?LicencePLate=GJ-12-2320",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/Vehicle/GetVehicleInfo?LicencePlate=GJ-12-2320",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"Vehicle",
+						"GetVehicleInfo"
+					],
+					"query": [
+						{
+							"key": "LicencePlate",
+							"value": "GJ-12-2320"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

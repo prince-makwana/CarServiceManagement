@@ -54,9 +54,9 @@ namespace CSM.WebApi.Controllers
 
         [HttpGet]
         [Route("Vehicle/GetVehicleInfo")]
-        public IHttpActionResult GetCustomerVehicle(string LicencePLate)
+        public IHttpActionResult GetCustomerVehicle(string LicencePlate)
         {
-            var entity = _vehicleManager.GetCustomerVehicle(LicencePLate);
+            var entity = _vehicleManager.GetCustomerVehicle(LicencePlate);
 
             if (entity != null)
             {

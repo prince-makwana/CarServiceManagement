@@ -193,63 +193,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AzureModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AzureModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AzureModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQLLocalDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQLLocalDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SQLLocalDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>SQLLocalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblAppointment.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblCustomer.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblDealer.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblDealersMechanic.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblMechanic.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblPlanning.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblService.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\tblVehicle.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -261,26 +204,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Models\AzureModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-      <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\AzureModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-      <LastGenOutput>AzureModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SQLLocalDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-      <LastGenOutput>SQLLocalDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\SQLLocalDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-      <LastGenOutput>SQLLocalDB.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -302,20 +225,6 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Models\SQLLocalDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQLLocalDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\SQLLocalDB.edmx.diagram">
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-    </Content>
-    <EntityDeploy Include="Models\AzureModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AzureModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\AzureModel.edmx.diagram">
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -339,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
     <Folder Include="Views\Mechanic\" />
   </ItemGroup>
   <ItemGroup>

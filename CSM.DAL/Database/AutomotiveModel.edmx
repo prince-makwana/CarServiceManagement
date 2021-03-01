@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AutoMotiveProjectModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AutomotiveDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAppointments">
           <Key>
             <PropertyRef Name="Id" />
@@ -242,7 +242,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AutoMotiveProjectModelStoreContainer">
+        <EntityContainer Name="AutomotiveDBModelStoreContainer">
           <EntitySet Name="tblAppointments" EntityType="Self.tblAppointments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCustomers" EntityType="Self.tblCustomers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblDealers" EntityType="Self.tblDealers" Schema="dbo" store:Type="Tables" />
@@ -288,7 +288,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AutoMotiveProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="AutomotiveDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblAppointment">
           <Key>
             <PropertyRef Name="Id" />
@@ -542,7 +542,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="AutoMotiveProjectEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="AutomotiveDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblAppointments" EntityType="Self.tblAppointment" />
           <EntitySet Name="tblCustomers" EntityType="Self.tblCustomer" />
           <EntitySet Name="tblDealers" EntityType="Self.tblDealer" />
@@ -589,9 +589,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AutoMotiveProjectModelStoreContainer" CdmEntityContainer="AutoMotiveProjectEntities">
+        <EntityContainerMapping StorageEntityContainer="AutomotiveDBModelStoreContainer" CdmEntityContainer="AutomotiveDBEntities">
           <EntitySetMapping Name="tblAppointments">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblAppointment">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblAppointment">
               <MappingFragment StoreEntitySet="tblAppointments">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
@@ -618,7 +618,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblCustomers">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblCustomer">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblCustomer">
               <MappingFragment StoreEntitySet="tblCustomers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
@@ -637,7 +637,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDealers">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblDealer">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblDealer">
               <MappingFragment StoreEntitySet="tblDealers">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DealerName" ColumnName="DealerName" />
@@ -658,7 +658,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblDealersMechanics">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblDealersMechanic">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblDealersMechanic">
               <MappingFragment StoreEntitySet="tblDealersMechanics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
@@ -667,7 +667,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblMechanics">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblMechanic">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblMechanic">
               <MappingFragment StoreEntitySet="tblMechanics">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="MechanicName" ColumnName="MechanicName" />
@@ -683,7 +683,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblPlannings">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblPlanning">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblPlanning">
               <MappingFragment StoreEntitySet="tblPlannings">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
@@ -696,7 +696,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblServices">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblService">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblService">
               <MappingFragment StoreEntitySet="tblServices">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
@@ -717,7 +717,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="tblVehicles">
-            <EntityTypeMapping TypeName="AutoMotiveProjectModel.tblVehicle">
+            <EntityTypeMapping TypeName="AutomotiveDBModel.tblVehicle">
               <MappingFragment StoreEntitySet="tblVehicles">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />

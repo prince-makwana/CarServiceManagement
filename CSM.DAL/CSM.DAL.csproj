@@ -53,62 +53,44 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\AzureModel.Context.cs">
+    <Compile Include="Database\AutomotiveModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.Context.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AzureModel.cs">
+    <Compile Include="Database\AutomotiveModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Database\AzureModel.Designer.cs">
+    <Compile Include="Database\AutomotiveModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Database\SQLLocalDB.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\SQLLocalDB.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\SQLLocalDB.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Database\sysdiagram.cs">
-      <DependentUpon>SQLLocalDB.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Database\tblAppointment.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblCustomer.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblDealer.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblDealersMechanic.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblMechanic.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblPlanning.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblService.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Database\tblVehicle.cs">
-      <DependentUpon>AzureModel.tt</DependentUpon>
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RepositoryClass\DealerRepository.cs" />
     <Compile Include="RepositoryClass\MechanicRepository.cs" />
@@ -134,19 +116,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Database\SQLLocalDB.edmx">
+    <EntityDeploy Include="Database\AutomotiveModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SQLLocalDB.Designer.cs</LastGenOutput>
+      <LastGenOutput>AutomotiveModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <EntityDeploy Include="Database\AzureModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>AzureModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Database\AzureModel.edmx.diagram">
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-    </None>
-    <None Include="Database\SQLLocalDB.edmx.diagram">
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
+    <None Include="Database\AutomotiveModel.edmx.diagram">
+      <DependentUpon>AutomotiveModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -154,25 +129,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\AzureModel.Context.tt">
+    <Content Include="Database\AutomotiveModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-      <LastGenOutput>AzureModel.Context.cs</LastGenOutput>
+      <DependentUpon>AutomotiveModel.edmx</DependentUpon>
+      <LastGenOutput>AutomotiveModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Database\AzureModel.tt">
+    <Content Include="Database\AutomotiveModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>AzureModel.edmx</DependentUpon>
-      <LastGenOutput>AzureModel.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database\SQLLocalDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-      <LastGenOutput>SQLLocalDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Database\SQLLocalDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SQLLocalDB.edmx</DependentUpon>
-      <LastGenOutput>SQLLocalDB.cs</LastGenOutput>
+      <DependentUpon>AutomotiveModel.edmx</DependentUpon>
+      <LastGenOutput>AutomotiveModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,14 +11,14 @@ namespace CSM.DAL.RepositoryClass
 {
     public class AppointmentRepository : IAppointmentRepository
     {
-        private readonly Database.AutoMotiveProjectEntities _dbContext;
+        private readonly Database.AutomotiveDBEntities _dbContext;
 
         //private readonly Database.ServiceBookingDBEntities _dbContext;
 
 
         public AppointmentRepository()
         {
-            _dbContext = new Database.AutoMotiveProjectEntities();
+            _dbContext = new Database.AutomotiveDBEntities();
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
 

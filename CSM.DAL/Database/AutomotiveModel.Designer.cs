@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\pdm29\Web Development Projects\Software Project Major\WebAPI\CarServiceManagement\CSM.DAL\Database\SQLLocalDB.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\prince.makwana\Software Project Major\CarServiceManagement\CSM.DAL\Database\AutomotiveModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

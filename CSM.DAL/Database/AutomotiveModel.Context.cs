@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CSM.WebApi.Models
+namespace CSM.DAL.Database
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ServiceBookingDBEntities : DbContext
+    public partial class AutomotiveDBEntities : DbContext
     {
-        public ServiceBookingDBEntities()
-            : base("name=ServiceBookingDBEntities")
+        public AutomotiveDBEntities()
+            : base("name=AutomotiveDBEntities")
         {
         }
     
@@ -25,7 +25,6 @@ namespace CSM.WebApi.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tblAppointment> tblAppointments { get; set; }
         public virtual DbSet<tblCustomer> tblCustomers { get; set; }
         public virtual DbSet<tblDealer> tblDealers { get; set; }
