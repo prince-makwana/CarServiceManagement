@@ -26,6 +26,7 @@ namespace CSM.DAL.Database
         }
     
         public virtual DbSet<tblAppointment> tblAppointments { get; set; }
+        public virtual DbSet<tblAppointmentService> tblAppointmentServices { get; set; }
         public virtual DbSet<tblCustomer> tblCustomers { get; set; }
         public virtual DbSet<tblDealer> tblDealers { get; set; }
         public virtual DbSet<tblDealersMechanic> tblDealersMechanics { get; set; }

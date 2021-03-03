@@ -4,21 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fa4c7f4a50304da5ba30db8099229e6a" Name="Diagram1">
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointment" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblCustomer" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblDealer" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblDealersMechanic" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblMechanic" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblPlanning" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblService" Width="1.5" PointX="5.25" PointY="9.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblVehicle" Width="1.5" PointX="3" PointY="12.75" IsExpanded="true" />
+      <Diagram DiagramId="dac68f17e685471cb5980c857e3e194e" Name="Diagram1">
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointment" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointmentService" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblCustomer" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblDealer" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblDealersMechanic" Width="1.5" PointX="5.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblMechanic" Width="1.5" PointX="3" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblPlanning" Width="1.5" PointX="7.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblService" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblVehicle" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblAppointments_tblCustomers" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblAppointments_tblDealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomotiveDBModel.FK_tblAppointmentServices_tblAppointments" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblPlannings_tblAppointments" ManuallyRouted="false" />
-        <AssociationConnector Association="AutomotiveDBModel.FK_tblServices_tblAppointments" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomotiveDBModel.FK_tblAppointmentServices_tblServices" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomotiveDBModel.FK_tblPlannings_tblAppointmentServices" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblVehicles_tblCustomers" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblDealersMechanics_tblDealers" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomotiveDBModel.FK_tblMechanics_tblDealers" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblDealersMechanics_tblMechanics" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblPlannings_tblMechanics" ManuallyRouted="false" />
       </Diagram>

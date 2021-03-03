@@ -17,12 +17,13 @@ namespace CSM.DAL.Database
         public int Id { get; set; }
         public int AppointmentId { get; set; }
         public int MechanicId { get; set; }
-        public int ServiceId { get; set; }
+        public int AppointmentServiceId { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public Nullable<System.DateTime> Duration { get; set; }
     
         public virtual tblAppointment tblAppointment { get; set; }
+        public virtual tblAppointmentService tblAppointmentService { get; set; }
         public virtual tblMechanic tblMechanic { get; set; }
     }
 }

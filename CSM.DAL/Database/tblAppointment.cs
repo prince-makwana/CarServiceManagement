@@ -17,8 +17,8 @@ namespace CSM.DAL.Database
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblAppointment()
         {
+            this.tblAppointmentServices = new HashSet<tblAppointmentService>();
             this.tblPlannings = new HashSet<tblPlanning>();
-            this.tblServices = new HashSet<tblService>();
         }
     
         public int Id { get; set; }
@@ -46,8 +46,8 @@ namespace CSM.DAL.Database
         public virtual tblCustomer tblCustomer { get; set; }
         public virtual tblDealer tblDealer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblPlanning> tblPlannings { get; set; }
+        public virtual ICollection<tblAppointmentService> tblAppointmentServices { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblService> tblServices { get; set; }
+        public virtual ICollection<tblPlanning> tblPlannings { get; set; }
     }
 }

@@ -12,26 +12,33 @@ namespace CSM.DAL.Database
     using System;
     using System.Collections.Generic;
     
-    public partial class tblService
+    public partial class tblAppointmentService
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public tblService()
+        public tblAppointmentService()
         {
-            this.tblAppointmentServices = new HashSet<tblAppointmentService>();
+            this.tblPlannings = new HashSet<tblPlanning>();
         }
     
         public int Id { get; set; }
-        public string Name { get; set; }
-        public float Price { get; set; }
-        public float FixPrice { get; set; }
-        public float Discount { get; set; }
+        public int AppointmentId { get; set; }
+        public int ServiceId { get; set; }
+        public string CostType { get; set; }
+        public string SalesPart { get; set; }
         public string Description { get; set; }
+        public int Quantity { get; set; }
+        public float PricePerUnit { get; set; }
+        public float Price { get; set; }
+        public float Discount { get; set; }
+        public float FixPrice { get; set; }
         public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public string UpdatedBy { get; set; }
-        public string UpdatedDate { get; set; }
+        public System.DateTime CreatedDate { get; set; }
+        public string UpdateBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
     
+        public virtual tblAppointment tblAppointment { get; set; }
+        public virtual tblService tblService { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblAppointmentService> tblAppointmentServices { get; set; }
+        public virtual ICollection<tblPlanning> tblPlannings { get; set; }
     }
 }

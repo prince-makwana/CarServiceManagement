@@ -71,6 +71,9 @@
     <Compile Include="Database\tblAppointment.cs">
       <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Database\tblAppointmentService.cs">
+      <DependentUpon>AutomotiveModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Database\tblCustomer.cs">
       <DependentUpon>AutomotiveModel.tt</DependentUpon>
     </Compile>
