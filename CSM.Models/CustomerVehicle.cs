@@ -17,6 +17,7 @@ namespace CSM.Models
         public string City { get; set; }
         public string Country { get; set; }
         public string CustomerNo { get; set; }
+        public string Email { get; set; }
 
         // Vehicle Data items
         public int VehicleId { get; set; }

@@ -14,5 +14,6 @@ namespace CSM.BAL.ManagerInterface
         string UpdateVehicle(Vehicle model);
         string DeleteVehicle(int id);
         CustomerVehicle GetCustomerVehicle(string LicencePlate);
+        List<Vehicle> GetVehiclesByCustomerId(int id);
     }
 }

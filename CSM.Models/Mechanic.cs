@@ -8,8 +8,6 @@ namespace CSM.Models
 {
     public class Mechanic
     {
-
-
         public int Id { get; set; }
         public string MechanicName { get; set; }
         public string EmployeeNo { get; set; }
@@ -20,7 +18,6 @@ namespace CSM.Models
         public System.DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
-
-
+        public int DealerId { get; set; }
     }
 }

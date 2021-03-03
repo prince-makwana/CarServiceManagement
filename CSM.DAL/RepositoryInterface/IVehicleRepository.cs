@@ -14,5 +14,7 @@ namespace CSM.DAL.RepositoryInterface
         string UpdateVehicle(Vehicle model);
         string DeleteVehicle(int id);
         CustomerVehicle GetCustomerVehicle(string LicencePlate);
+
+        List<Vehicle> GetVehiclesByCustomerId(int id);
     }
 }

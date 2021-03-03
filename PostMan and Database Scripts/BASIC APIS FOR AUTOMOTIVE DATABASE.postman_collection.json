@@ -63,7 +63,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n        \"Id\": 1,\r\n        \"DealerName\": \"Prince Makwana\",\r\n        \"DealerNo\": \"DEALER-01\",\r\n        \"isActive\": 1,\r\n        \"isOnline\": 0,\r\n        \"Website\": \"www.dealer-01.com\",\r\n        \"Email\": \"ddealer01@gmail.com\",\r\n        \"PhoneNo\": \"9426836645\",\r\n        \"Address\": \"B/25, ABC Lane\",\r\n        \"Latitude\": 29.098,\r\n        \"Longitude\": -129.23,\r\n        \"CreatedBy\": \"Prince Makwana\",\r\n        \"CreatedDate\": \"2021-03-01T12:22:42.003\",\r\n        \"UpdatedBy\": null,\r\n        \"UpdatedDate\": null\r\n    }",
+					"raw": "{\r\n        \"Id\": 2,\r\n        \"DealerName\": \"Prince Makwana\",\r\n        \"DealerNo\": \"DEALER-01\",\r\n        \"isActive\": 1,\r\n        \"isOnline\": 0,\r\n        \"Website\": \"www.dealer-01.com\",\r\n        \"Email\": \"ddealer01@gmail.com\",\r\n        \"PhoneNo\": \"9426836645\",\r\n        \"Address\": \"B/25, ABC Lane\",\r\n        \"Latitude\": 29.098,\r\n        \"Longitude\": -129.23,\r\n        \"CreatedBy\": \"Prince Makwana\",\r\n        \"CreatedDate\": \"2021-03-01T12:22:42.003\",\r\n        \"UpdatedBy\": null,\r\n        \"UpdatedDate\": null\r\n    }",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -92,7 +92,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44370/api/Dealer/DeleteDealers/1",
+					"raw": "https://localhost:44370/api/Dealer/DeleteDealers/2",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -102,7 +102,7 @@
 						"api",
 						"Dealer",
 						"DeleteDealers",
-						"1"
+						"2"
 					]
 				}
 			},
@@ -195,13 +195,14 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://localhost:44370/Vehicle/GetVehicleInfo?LicencePlate=GJ-12-2320",
+					"raw": "https://localhost:44370/api/Vehicle/GetVehicleInfo?LicencePlate=GJ-12-2320",
 					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "44370",
 					"path": [
+						"api",
 						"Vehicle",
 						"GetVehicleInfo"
 					],
@@ -210,6 +211,151 @@
 							"key": "LicencePlate",
 							"value": "GJ-12-2320"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Dealer/allDealers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Dealer/allDealers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Dealer",
+						"allDealers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Appoinment/CreateAppoinments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CustomerId\": 1,\r\n    \"FName\": \"Lalit\",\r\n    \"LName\": \"Radadiya\",\r\n    \"City\": \"Ahmedabad\",\r\n    \"Country\": \"India\",\r\n    \"Email\": \"lalitradaiya@gmail.com\",\r\n    \"MobileNo\": \"9999988888\",\r\n    \"Brand\": \"Jaguar\",\r\n    \"LicencePlate\": \"GJ-12-2320\",\r\n    \"Model\": \"Sedan\",\r\n    \"Status\": \"Pending\",\r\n    \"DealerId\": 1,\r\n    \"StartDate\": \"2020-01-20\",\r\n    \"EndDate\": \"2020-01-21\",\r\n    \"TotalPrice\": 2340.87,\r\n    \"TotalTime\": \"2020-01-12\",\r\n    \"CreatedBy\": \"Prince\",\r\n    \"CreatedDate\": \"2020-01-20\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Appoinment/CreateAppoinments",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Appoinment",
+						"CreateAppoinments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Appointment/allAppointments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Appointment/allAppointments",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Appointment",
+						"allAppointments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Appoinment/UpdateAppoinments",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"Id\": 1,\r\n        \"CustomerId\": 1,\r\n        \"LicencePlate\": \"GJ-12-2320\",\r\n        \"FName\": \"Lalit\",\r\n        \"LName\": \"Radadiya\",\r\n        \"MobileNo\": \"9999988888\",\r\n        \"Email\": \"lalitradaiya@gmail.com\",\r\n        \"City\": \"Ahmedabad\",\r\n        \"Country\": \"USA\",\r\n        \"Model\": \"Sedan\",\r\n        \"Brand\": \"Jaguar\",\r\n        \"DealerId\": 1,\r\n        \"Status\": \"Pending\",\r\n        \"StartDate\": \"2020-01-20T00:00:00\",\r\n        \"EndDate\": \"2020-01-21T00:00:00\",\r\n        \"TotalPrice\": 2340.87,\r\n        \"TotalTime\": \"2020-01-12T00:00:00\",\r\n        \"CreatedBy\": \"Prince\",\r\n        \"CreatedDate\": \"2020-01-20T00:00:00\",\r\n        \"UpdatedBy\": null,\r\n        \"UpdatedDate\": null\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44370/api/Appoinment/UpdateAppoinments",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Appoinment",
+						"UpdateAppoinments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/Appoinment/DeleteAppoinments/2",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/Appoinment/DeleteAppoinments/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"Appoinment",
+						"DeleteAppoinments",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44370/api/VehicleByCustomerId/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44370/api/VehicleByCustomerId/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44370",
+					"path": [
+						"api",
+						"VehicleByCustomerId",
+						"1"
 					]
 				}
 			},

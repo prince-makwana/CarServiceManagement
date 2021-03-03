@@ -53,7 +53,7 @@ namespace CSM.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("Vehicle/GetVehicleInfo")]
+        [Route("api/Vehicle/GetVehicleInfo")]
         public IHttpActionResult GetCustomerVehicle(string LicencePlate)
         {
             var entity = _vehicleManager.GetCustomerVehicle(LicencePlate);
@@ -66,6 +66,15 @@ namespace CSM.WebApi.Controllers
             {
                 return Json("No Data Found. Licence Plate not exists.");
             }
+        }
+
+        [HttpGet]
+        [Route("api/VehicleByCustomerId/{id}")]
+        public IHttpActionResult GetVehiclesByCustomerId(int id)
+        {
+            var entity = _vehicleManager.GetVehiclesByCustomerId(id);
+
+            return Json(entity);
         }
     }
 }

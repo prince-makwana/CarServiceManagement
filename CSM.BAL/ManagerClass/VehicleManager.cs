@@ -38,6 +38,11 @@ namespace CSM.BAL.ManagerClass
             return _vehicleRepository.GetCustomerVehicle(LicencePlate);
         }
 
+        public List<Vehicle> GetVehiclesByCustomerId(int id)
+        {
+            return _vehicleRepository.GetVehiclesByCustomerId(id);
+        }
+
         public string UpdateVehicle(Vehicle model)
         {
             return _vehicleRepository.UpdateVehicle(model);

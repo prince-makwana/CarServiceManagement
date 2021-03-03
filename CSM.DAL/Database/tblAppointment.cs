@@ -34,10 +34,10 @@ namespace CSM.DAL.Database
         public string Brand { get; set; }
         public int DealerId { get; set; }
         public string Status { get; set; }
-        public System.DateTime StartDate { get; set; }
-        public System.DateTime EndDate { get; set; }
-        public float TotalPrice { get; set; }
-        public Nullable<System.DateTime> TotalTime { get; set; }
+        public Nullable<System.DateTime> StartDate { get; set; }
+        public Nullable<System.DateTime> EndDate { get; set; }
+        public Nullable<float> TotalPrice { get; set; }
+        public Nullable<decimal> TotalTime { get; set; }
         public string CreatedBy { get; set; }
         public System.DateTime CreatedDate { get; set; }
         public string UpdatedBy { get; set; }

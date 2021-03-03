@@ -150,5 +150,27 @@ namespace CSM.DAL.RepositoryClass
             }
 
         }
+
+        public List<Vehicle> GetVehiclesByCustomerId(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblVehicle, Vehicle>());
+            var mapper = config.CreateMapper();
+
+            List<Vehicle> vehicleList = new List<Vehicle>();
+
+            var vehicleEntities = _dbContext.tblVehicles.Where(v => v.CustomerId == id).ToList();
+
+            if(vehicleEntities.Count() != 0)
+            {
+                foreach (var item in vehicleEntities)
+                {
+                    Vehicle vehicle = mapper.Map<Vehicle>(item);
+                    vehicleList.Add(vehicle);
+                }
+                return vehicleList;
+            }
+
+            return vehicleList;
+        }
     }
 }
