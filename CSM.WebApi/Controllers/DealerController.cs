@@ -39,7 +39,7 @@ namespace CSM.WebApi.Controllers
         }
 
         [HttpPut]
-        [Route("api/Customer/UpdateDealers")]
+        [Route("api/Dealer/UpdateDealers")]
         public string UpdateDealers([FromBody] Dealer model)
         {
             return _dealerManager.UpdateDealer(model);
