@@ -79,35 +79,41 @@ namespace CSM.DAL.RepositoryClass
                                            where v.LicencePlate.Equals(LicencePlate)
                                            select v).FirstOrDefault();
 
-            Database.tblCustomer customer = _dbContext.tblCustomers.Find(vehicle.CustomerId);
+            if(vehicle !=null)
+            {
+                Database.tblCustomer customer = _dbContext.tblCustomers.FirstOrDefault(c => c.Id == vehicle.CustomerId);
 
-            #region Preparation of CustomerVehicle object
+                if(customer != null)
+                {
+                    #region Preparation of CustomerVehicle object
 
-            customerVehicle.CustomerId = customer.Id;
-            customerVehicle.CustomerName = customer.CustomerName;
-            customerVehicle.FName = customer.FName;
-            customerVehicle.LName = customer.LName;
-            customerVehicle.Address = customer.Address;
-            customerVehicle.ZipCode = customer.ZipCode;
-            customerVehicle.City = customer.City;
-            customerVehicle.Country = customer.Country;
-            customerVehicle.CustomerNo = customer.CustomerNo;
+                    customerVehicle.CustomerId = customer.Id;
+                    customerVehicle.CustomerName = customer.CustomerName;
+                    customerVehicle.FName = customer.FName;
+                    customerVehicle.LName = customer.LName;
+                    customerVehicle.Address = customer.Address;
+                    customerVehicle.ZipCode = customer.ZipCode;
+                    customerVehicle.City = customer.City;
+                    customerVehicle.Country = customer.Country;
+                    customerVehicle.CustomerNo = customer.CustomerNo;
 
-            customerVehicle.VehicleId = vehicle.Id;
-            customerVehicle.Brand = vehicle.Brand;
-            customerVehicle.Model = vehicle.Model;
-            customerVehicle.LicencePlate = vehicle.LicencePlate;
-            customerVehicle.MeterValue = vehicle.MeterValue;
-            customerVehicle.RegDate = vehicle.RegDate;
-            customerVehicle.Weight = vehicle.Weight;
-            customerVehicle.Vin = vehicle.Vin;
-            customerVehicle.EngNo = vehicle.EngNo;
-            customerVehicle.MCHCode = vehicle.MCHCode;
-            customerVehicle.Colour = vehicle.Colour;
+                    customerVehicle.VehicleId = vehicle.Id;
+                    customerVehicle.Brand = vehicle.Brand;
+                    customerVehicle.Model = vehicle.Model;
+                    customerVehicle.LicencePlate = vehicle.LicencePlate;
+                    customerVehicle.MeterValue = vehicle.MeterValue;
+                    customerVehicle.RegDate = vehicle.RegDate;
+                    customerVehicle.Weight = vehicle.Weight;
+                    customerVehicle.Vin = vehicle.Vin;
+                    customerVehicle.EngNo = vehicle.EngNo;
+                    customerVehicle.MCHCode = vehicle.MCHCode;
+                    customerVehicle.Colour = vehicle.Colour;
 
 
-            #endregion
-
+                    #endregion
+                }
+            }
+            
             return customerVehicle;
         }
 
