@@ -29,7 +29,8 @@ namespace CSM.DAL.RepositoryClass
             if(model!= null)
             {
                 var appoinment = mapper.Map<Database.tblAppointment>(model);
-
+                appoinment.CreatedBy = model.FName;
+                appoinment.CreatedDate = DateTime.Now;
                 _dbContext.tblAppointments.Add(appoinment);
                 _dbContext.SaveChanges();
                 return "Created Succesfully";
