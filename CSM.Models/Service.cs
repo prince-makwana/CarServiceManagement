@@ -18,5 +18,7 @@ namespace CSM.Models
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public string UpdatedDate { get; set; }
+        public int DealerId { get; set; }
+
     }
 }

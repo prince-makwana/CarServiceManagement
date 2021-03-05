@@ -20,6 +20,7 @@ namespace CSM.DAL.Database
             this.tblAppointments = new HashSet<tblAppointment>();
             this.tblDealersMechanics = new HashSet<tblDealersMechanic>();
             this.tblMechanics = new HashSet<tblMechanic>();
+            this.tblServices = new HashSet<tblService>();
         }
     
         public int Id { get; set; }
@@ -44,5 +45,7 @@ namespace CSM.DAL.Database
         public virtual ICollection<tblDealersMechanic> tblDealersMechanics { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblMechanic> tblMechanics { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tblService> tblServices { get; set; }
     }
 }

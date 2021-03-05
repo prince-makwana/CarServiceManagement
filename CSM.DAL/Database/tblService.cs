@@ -30,8 +30,10 @@ namespace CSM.DAL.Database
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string UpdatedBy { get; set; }
         public string UpdatedDate { get; set; }
+        public int DealerId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblAppointmentService> tblAppointmentServices { get; set; }
+        public virtual tblDealer tblDealer { get; set; }
     }
 }

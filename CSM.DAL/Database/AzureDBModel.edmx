@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AutomotiveDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AutomotiveDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblAppointments">
           <Key>
             <PropertyRef Name="Id" />
@@ -130,7 +130,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="Price" Type="real" Nullable="false" />
           <Property Name="FixPrice" Type="real" Nullable="false" />
@@ -140,6 +140,7 @@
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="UpdatedDate" Type="nvarchar" MaxLength="100" />
+          <Property Name="DealerId" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="tblVehicles">
           <Key>
@@ -283,6 +284,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tblServices_tblDealers">
+          <End Role="tblDealers" Type="Self.tblDealers" Multiplicity="1" />
+          <End Role="tblServices" Type="Self.tblServices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDealers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblServices">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tblVehicles_tblCustomers">
           <End Role="tblCustomers" Type="Self.tblCustomers" Multiplicity="1" />
           <End Role="tblVehicles" Type="Self.tblVehicles" Multiplicity="*" />
@@ -345,13 +358,16 @@
             <End Role="tblMechanics" EntitySet="tblMechanics" />
             <End Role="tblPlannings" EntitySet="tblPlannings" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblServices_tblDealers" Association="Self.FK_tblServices_tblDealers">
+            <End Role="tblDealers" EntitySet="tblDealers" />
+            <End Role="tblServices" EntitySet="tblServices" />
+          </AssociationSet>
           <AssociationSet Name="FK_tblVehicles_tblCustomers" Association="Self.FK_tblVehicles_tblCustomers">
             <End Role="tblCustomers" EntitySet="tblCustomers" />
             <End Role="tblVehicles" EntitySet="tblVehicles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AutomotiveDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -451,6 +467,7 @@
           <NavigationProperty Name="tblAppointments" Relationship="Self.FK_tblAppointments_tblDealers" FromRole="tblDealers" ToRole="tblAppointments" />
           <NavigationProperty Name="tblDealersMechanics" Relationship="Self.FK_tblDealersMechanics_tblDealers" FromRole="tblDealers" ToRole="tblDealersMechanics" />
           <NavigationProperty Name="tblMechanics" Relationship="Self.FK_tblMechanics_tblDealers" FromRole="tblDealers" ToRole="tblMechanics" />
+          <NavigationProperty Name="tblServices" Relationship="AutomotiveDBModel.FK_tblServices_tblDealers" FromRole="tblDealer" ToRole="tblService" />
         </EntityType>
         <EntityType Name="tblDealersMechanic">
           <Key>
@@ -511,6 +528,8 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="tblAppointmentServices" Relationship="Self.FK_tblAppointmentServices_tblServices" FromRole="tblServices" ToRole="tblAppointmentServices" />
+          <Property Name="DealerId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tblDealer" Relationship="AutomotiveDBModel.FK_tblServices_tblDealers" FromRole="tblService" ToRole="tblDealer" />
         </EntityType>
         <EntityType Name="tblVehicle">
           <Key>
@@ -721,7 +740,23 @@
             <End Role="tblMechanics" EntitySet="tblMechanics" />
             <End Role="tblPlannings" EntitySet="tblPlannings" />
           </AssociationSet>
+          <AssociationSet Name="FK_tblServices_tblDealers" Association="AutomotiveDBModel.FK_tblServices_tblDealers">
+            <End Role="tblDealer" EntitySet="tblDealers" />
+            <End Role="tblService" EntitySet="tblServices" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_tblServices_tblDealers">
+          <End Type="AutomotiveDBModel.tblDealer" Role="tblDealer" Multiplicity="1" />
+          <End Type="AutomotiveDBModel.tblService" Role="tblService" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblDealer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="tblService">
+              <PropertyRef Name="DealerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -859,6 +894,7 @@
           <EntitySetMapping Name="tblServices">
             <EntityTypeMapping TypeName="AutomotiveDBModel.tblService">
               <MappingFragment StoreEntitySet="tblServices">
+                <ScalarProperty Name="DealerId" ColumnName="DealerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Price" ColumnName="Price" />

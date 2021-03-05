@@ -25,6 +25,7 @@
         <AssociationConnector Association="AutomotiveDBModel.FK_tblMechanics_tblDealers" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblDealersMechanics_tblMechanics" ManuallyRouted="false" />
         <AssociationConnector Association="AutomotiveDBModel.FK_tblPlannings_tblMechanics" ManuallyRouted="false" />
+        <AssociationConnector Association="AutomotiveDBModel.FK_tblServices_tblDealers" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
