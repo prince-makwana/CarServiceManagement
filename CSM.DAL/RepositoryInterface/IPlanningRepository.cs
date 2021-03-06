@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace CSM.DAL.RepositoryInterface
 {
     public interface IPlanningRepository
     {
+        string CreatePlanning(Planning model);
+        List<Planning> GetAllPlanning();
     }
 }

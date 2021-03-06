@@ -126,7 +126,6 @@ namespace CSM.DAL.RepositoryClass
                     mechanicList.Add(mechanic);
                 }
             }
-
             return mechanicList;
         }
     }

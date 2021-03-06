@@ -20,21 +20,53 @@ namespace CSM.DAL.RepositoryClass
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
-        //public string CreatePlanning(Planning model)
-        //{
-        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
-        //    var mapper = config.CreateMapper();
-        //    if (model != null)
-        //    {
-        //        var appoinment = mapper.Map<Database.tblAppointment>(model);
-                
-        //        appoinment.CreatedDate = DateTime.Now;
-        //        _dbContext.tblAppointments.Add(appoinment);
-        //        _dbContext.SaveChanges();
-        //        return "Created Succesfully";
-        //    }
+        public string CreatePlanning(Planning model)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Planning, Database.tblPlanning>());
+            var mapper = config.CreateMapper();
+            if (model != null)
+            {
+                var planning = mapper.Map<Database.tblPlanning>(model);
 
-        //    return "Plz try after Some time or Contact admin";
-        //}
+                #region Finding AppointmentServiceId from AppointmentId
+
+                var id = _dbContext.tblAppointmentServices.
+                    First(a => a.AppointmentId == model.AppointmentId).Id;
+
+                #endregion
+
+                if(id != null)
+                {
+                    planning.Duration = DateTime.Now;
+                    planning.AppointmentServiceId = id;
+
+                    _dbContext.tblPlannings.Add(planning);
+                    _dbContext.SaveChanges();
+                    return "Created Succesfully";
+                }
+            }
+
+            return "Plz try after Some time or Contact admin";
+        }
+
+        public List<Planning> GetAllPlanning()
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());
+            var mapper = config.CreateMapper();
+
+            var planningEntities = _dbContext.tblPlannings.ToList();
+
+            List<Planning> planningList = new List<Planning>();
+
+            if (planningEntities != null)
+            {
+                foreach (var item in planningEntities)
+                {
+                    Planning planning = mapper.Map<Planning>(item);
+                    planningList.Add(planning);
+                }
+            }
+            return planningList;
+        }
     }
 }

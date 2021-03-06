@@ -1,5 +1,6 @@
 ﻿using CSM.BAL.ManagerInterface;
 using CSM.DAL.RepositoryInterface;
+using CSM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,16 @@ namespace CSM.BAL.ManagerClass
         public PlanningManager(IPlanningRepository planningRepository)
         {
             _planningRepository = planningRepository;
+        }
+
+        public string CreatePlanning(Planning model)
+        {
+            return _planningRepository.CreatePlanning(model);
+        }
+
+        public List<Planning> GetAllPlanning()
+        {
+            return _planningRepository.GetAllPlanning();
         }
     }
 }
