@@ -33,6 +33,11 @@ namespace CSM.BAL.ManagerClass
             return _mechanicRepository.GetAllMechanics();
         }
 
+        public List<Mechanic> MechanicDropdown(int id)
+        {
+            return _mechanicRepository.MechanicDropdown(id);
+        }
+
         public string UpdateMechanic(Mechanic model)
         {
             return _mechanicRepository.UpdateMechanic(model);

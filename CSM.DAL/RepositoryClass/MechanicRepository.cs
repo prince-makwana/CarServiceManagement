@@ -107,5 +107,28 @@ namespace CSM.DAL.RepositoryClass
                 return "Something went wrong plz try after some time.";
             }
         }
+
+        public List<Mechanic> MechanicDropdown(int id)
+        {
+            List<Mechanic> mechanicList = new List<Mechanic>();
+
+            var mechanicData = _dbContext.tblMechanics.Where(m => m.DealerId == id).ToList();
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblMechanic, Mechanic>());
+            var mapper = config.CreateMapper();
+
+            if (mechanicData != null)
+            {
+                foreach (var item in mechanicData)
+                {
+                    Mechanic mechanic = mapper.Map<Mechanic>(item);
+
+                    mechanicList.Add(mechanic);
+                }
+            }
+
+            return mechanicList;
+        }
     }
 }
+

@@ -51,5 +51,21 @@ namespace CSM.WebApi.Controllers
         {
             return _mechanicManager.DeleteMechanic(id);
         }
+
+        [HttpGet]
+        [Route("api/Mechanic/MechanicDropdown/{id}")]
+        public IHttpActionResult ServicesDropdown(int id)
+        {
+            var mechanicDropdown = _mechanicManager.MechanicDropdown(id);
+
+            if (mechanicDropdown.Count == 0)
+            {
+                return Json("No Mechanics Available.");
+            }
+            else
+            {
+                return Json(mechanicDropdown);
+            }
+        }
     }
 }

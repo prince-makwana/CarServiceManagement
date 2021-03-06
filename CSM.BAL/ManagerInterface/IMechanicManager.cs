@@ -13,5 +13,6 @@ namespace CSM.BAL.ManagerInterface
         string DeleteMechanic(int id);
         List<Mechanic> GetAllMechanics();
         string UpdateMechanic(Mechanic model);
+        List<Mechanic> MechanicDropdown(int id);
     }
 }

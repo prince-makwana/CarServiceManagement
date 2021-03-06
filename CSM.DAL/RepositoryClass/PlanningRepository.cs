@@ -1,4 +1,6 @@
-﻿using CSM.DAL.RepositoryInterface;
+﻿using AutoMapper;
+using CSM.DAL.RepositoryInterface;
+using CSM.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +19,22 @@ namespace CSM.DAL.RepositoryClass
             _dbContext = new Database.AutomotiveDBEntities();
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
+
+        //public string CreatePlanning(Planning model)
+        //{
+        //    var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
+        //    var mapper = config.CreateMapper();
+        //    if (model != null)
+        //    {
+        //        var appoinment = mapper.Map<Database.tblAppointment>(model);
+                
+        //        appoinment.CreatedDate = DateTime.Now;
+        //        _dbContext.tblAppointments.Add(appoinment);
+        //        _dbContext.SaveChanges();
+        //        return "Created Succesfully";
+        //    }
+
+        //    return "Plz try after Some time or Contact admin";
+        //}
     }
 }
