@@ -21,6 +21,7 @@ namespace CSM.BAL.Helper
             Container.RegisterType<IPlanningRepository, PlanningRepository>();
             Container.RegisterType<IServiceRepository, ServiceRepository>();
             Container.RegisterType<IVehicleRepository, VehicleRepository>();
+            Container.RegisterType<IAppointmentServiceRepository, AppointmentServiceRepository>();
         }
     }
 }

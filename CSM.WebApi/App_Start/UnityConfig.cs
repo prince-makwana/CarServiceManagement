@@ -24,6 +24,7 @@ namespace CSM.WebApi
             container.RegisterType<IPlanningManager, PlanningManager>();
             container.RegisterType<IServiceManager, ServiceManager>();
             container.RegisterType<IVehicleManager, VehicleManager>();
+            container.RegisterType<IAppointmentServiceManager, AppointmentServiceManager>();
 
             container.AddNewExtension<UnityRepositoryHelper>();
             

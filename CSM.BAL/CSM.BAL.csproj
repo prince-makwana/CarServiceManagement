@@ -63,10 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ManagerClass\AppointmentManager.cs" />
+    <Compile Include="ManagerClass\AppointmentServiceManager.cs" />
     <Compile Include="ManagerClass\CustomerManager.cs" />
     <Compile Include="ManagerClass\DealerManager.cs" />
     <Compile Include="Helper\UnityRepositoryHelper.cs" />
     <Compile Include="ManagerInterface\IAppointmentManager.cs" />
+    <Compile Include="ManagerInterface\IAppointmentServiceManager.cs" />
     <Compile Include="ManagerInterface\ICustomerManager.cs" />
     <Compile Include="ManagerInterface\IDealerManager.cs" />
     <Compile Include="ManagerInterface\IMechanicManager.cs" />

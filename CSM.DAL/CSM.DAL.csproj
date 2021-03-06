@@ -95,6 +95,7 @@
     <Compile Include="Database\tblVehicle.cs">
       <DependentUpon>AzureDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="RepositoryClass\AppointmentServiceRepository.cs" />
     <Compile Include="RepositoryClass\DealerRepository.cs" />
     <Compile Include="RepositoryClass\MechanicRepository.cs" />
     <Compile Include="RepositoryClass\PlanningRepository.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="RepositoryClass\AppointmentRepository.cs" />
     <Compile Include="RepositoryClass\CustomerRepository.cs" />
     <Compile Include="RepositoryInterface\IAppointmentRepository.cs" />
+    <Compile Include="RepositoryInterface\IAppointmentServiceRepository.cs" />
     <Compile Include="RepositoryInterface\ICustomerRepository.cs" />
     <Compile Include="RepositoryInterface\IDealerRepository.cs" />
     <Compile Include="RepositoryInterface\IMechanicRepository.cs" />

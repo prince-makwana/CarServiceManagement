@@ -1,0 +1,47 @@
+﻿using CSM.BAL.ManagerInterface;
+using CSM.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
+
+namespace CSM.WebApi.Controllers
+{
+    public class AppointmentServiceController : ApiController
+    {
+        private readonly IAppointmentServiceManager _appointmentServiceManager;
+
+        public AppointmentServiceController(IAppointmentServiceManager appointmentServiceManager)
+        {
+            _appointmentServiceManager = appointmentServiceManager;
+        }
+
+        [HttpGet]
+        [Route("api/Value/abc")]
+        public string Value()
+        {
+            return "Hello World!";
+        }
+
+        [HttpGet]
+        [Route("api/AppointmentService/allAppointmentServices")]
+        public IHttpActionResult GetAllAppointments()
+        {
+            var appointments = _appointmentServiceManager.GetAllAppointmentServices();
+            if (appointments.Count == 0)
+            {
+                return Json("Data not available");
+            }
+            return Json(appointments);
+        }
+
+        [HttpPost]
+        [Route("api/AppoinmentService/CreateAppoinmentServices")]
+        public string CreateAppoinments([FromBody] AppointmentService model)
+        {
+            return _appointmentServiceManager.CreateAppointmentService(model);
+        }
+    }
+}
