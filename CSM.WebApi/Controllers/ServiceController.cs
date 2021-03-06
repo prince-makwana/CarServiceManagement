@@ -53,7 +53,7 @@ namespace CSM.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/Service/ServiceDropdown")]
+        [Route("api/Service/ServiceDropdown/{id}")]
         public IHttpActionResult ServicesDropdown(int id)
         {
             var serviceDropdown = _serviceManager.ServicesDropdown(id);
