@@ -51,5 +51,21 @@ namespace CSM.WebApi.Controllers
         {
             return _serviceManager.DeleteService(id);
         }
+
+        [HttpGet]
+        [Route("api/Service/ServiceDropdown")]
+        public IHttpActionResult ServicesDropdown(int id)
+        {
+            var serviceDropdown = _serviceManager.ServicesDropdown(id);
+
+            if (serviceDropdown.Count == 0)
+            {
+                return Json("Error in fetching the list. Try after sometime.");
+            }
+            else
+            {
+                return Json(serviceDropdown);
+            }
+        }
     }
 }

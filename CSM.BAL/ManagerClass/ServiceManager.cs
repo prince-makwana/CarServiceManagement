@@ -33,6 +33,11 @@ namespace CSM.BAL.ManagerClass
             return _serviceRepository.GetAllServices();
         }
 
+        public List<Service> ServicesDropdown(int id)
+        {
+            return _serviceRepository.ServicesDropdown(id);
+        }
+
         public string UpdateService(Service model)
         {
             return _serviceRepository.UpdateService(model);

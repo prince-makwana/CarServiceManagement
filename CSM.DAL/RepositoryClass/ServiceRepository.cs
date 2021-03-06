@@ -100,5 +100,27 @@ namespace CSM.DAL.RepositoryClass
                 return "Something went wrong plz try after some time.";
             }
         }
+
+        public List<Service> ServicesDropdown(int id)
+        {
+            List<Service> serviceList = new List<Service>();
+
+            var servicesData = _dbContext.tblServices.Where(s => s.DealerId == id).ToList();
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblService, Service>());
+            var mapper = config.CreateMapper();
+
+            if (servicesData != null)
+            {
+                foreach (var item in servicesData)
+                {
+                    Service service = mapper.Map<Service>(item);
+
+                    serviceList.Add(service);
+                }
+            }
+
+            return serviceList;
+        }
     }
 }
