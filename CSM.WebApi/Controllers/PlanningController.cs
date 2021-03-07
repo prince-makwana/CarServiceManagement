@@ -26,7 +26,7 @@ namespace CSM.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/Planning/allPlannings")]
+        [Route(" api/Planning/allPlannings")]
         public IHttpActionResult GetAllPlannings()
         {
             var plannings = _planningManager.GetAllPlanning();

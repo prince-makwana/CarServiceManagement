@@ -47,5 +47,20 @@ namespace CSM.WebApi.Controllers
         {
             return _appointmentManager.DeleteAppoinment(id);
         }
+
+        [HttpGet]
+        [Route("api/Appointment/AppointmentTracker/{id}")]
+        public IHttpActionResult GetAppointmentTracker(int id)
+        {
+            AppointmentTracker apptracker = _appointmentManager.GetAppointmentTracker(id);
+            if (apptracker != null)
+            {
+                return Json(apptracker);
+            }
+            else
+            {
+                return Content(HttpStatusCode.NotFound, "Data Not Found.");
+            }
+        }
     }
 }

@@ -114,5 +114,79 @@ namespace CSM.DAL.RepositoryClass
             }
 
         }
+
+        public AppointmentTracker GetAppointmentTracker(int id)
+        {
+            AppointmentTracker appTracker = new AppointmentTracker();
+
+            var appointment = _dbContext.tblAppointments.FirstOrDefault(a => a.Id == id);
+
+            if (appointment != null)
+            {
+                var dealer = _dbContext.tblDealers.Select(d => new { d.DealerName, d.Id }).
+                    FirstOrDefault(d => d.Id == appointment.DealerId);
+
+                if (dealer != null)
+                {
+                    var mechanic = _dbContext.tblMechanics.Select(m => new { m.MechanicName, m.MobileNo, m.DealerId }).
+                        FirstOrDefault(m => m.DealerId == dealer.Id);
+
+                    if (mechanic != null)
+                    {
+                        var appservice = _dbContext.tblAppointmentServices.Select(a => new { a.ServiceId, a.AppointmentId }).
+                            FirstOrDefault(a => a.AppointmentId == id);
+
+                        if (appservice != null)
+                        {
+                            var service = _dbContext.tblServices.Select(s => new { s.Id, s.Name }).
+                                FirstOrDefault(s => s.Id == appservice.ServiceId);
+
+                            #region AppTracker ViewModel
+
+                            appTracker.FName = appointment.FName;
+                            appTracker.LName = appointment.LName;
+                            appTracker.LicencePlate = appointment.LicencePlate;
+                            appTracker.Status = appointment.Status;
+                            appTracker.Email = appointment.Email;
+                            appTracker.StartDate = appointment.StartDate;
+                            appTracker.EndDate = appointment.EndDate;
+                            appTracker.TotalPrice = appointment.TotalPrice;
+                            appTracker.TotalTime = appointment.TotalTime;
+
+                            appTracker.DealerName = dealer.DealerName;
+
+                            appTracker.MechanicName = mechanic.MechanicName;
+                            appTracker.MobileNo = mechanic.MobileNo;
+                            appTracker.ServiceName = service.Name;
+
+                            #endregion
+
+                            return appTracker;
+                        }
+                        else
+                        {
+                            appTracker = null;
+                            return appTracker;
+                        }
+                    }
+                    else
+                    {
+                        appTracker = null;
+                        return appTracker;
+                    }
+                }
+                else
+                {
+                    appTracker = null;
+                    return appTracker;
+                }
+            }
+            else 
+            { 
+                appTracker = null;
+                return appTracker;
+            }
+
+        }
     }
 }
