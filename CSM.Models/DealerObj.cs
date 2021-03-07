@@ -11,5 +11,6 @@ namespace CSM.Models
         public int Id { get; set; }
         public string DealerName { get; set; }
         public string DealerNo { get; set; }
+        public string PhoneNo { get; set; }
     }
 }

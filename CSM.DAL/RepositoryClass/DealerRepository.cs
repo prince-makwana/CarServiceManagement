@@ -43,7 +43,7 @@ namespace CSM.DAL.RepositoryClass
         {
             List<DealerObj> dealerList = new List<DealerObj>();
 
-            var dealersData = _dbContext.tblDealers.Select(d => new { d.Id, d.DealerName, d.DealerNo}).ToList();
+            var dealersData = _dbContext.tblDealers.Select(d => new { d.Id, d.DealerName, d.DealerNo, d.PhoneNo}).ToList();
 
             if(dealersData != null)
             {
@@ -54,6 +54,7 @@ namespace CSM.DAL.RepositoryClass
                     dealerObj.Id = item.Id;
                     dealerObj.DealerName = item.DealerName;
                     dealerObj.DealerNo = item.DealerNo;
+                    dealerObj.PhoneNo = item.PhoneNo;
 
                     dealerList.Add(dealerObj);
                 }
