@@ -14,5 +14,6 @@ namespace CSM.DAL.RepositoryInterface
         string UpdateAppoinment(Appointment model);
         string DeleteAppoinment(int id);
         AppointmentTracker GetAppointmentTracker(int id);
+        string UpdateStatus(UpdateStatus model);
     }
 }

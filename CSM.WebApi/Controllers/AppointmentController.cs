@@ -62,5 +62,12 @@ namespace CSM.WebApi.Controllers
                 return Content(HttpStatusCode.NotFound, "Data Not Found.");
             }
         }
+
+        [HttpPut]
+        [Route("api/Appointment/UpdateStatus")]
+        public IHttpActionResult UpdateStatus([FromBody] UpdateStatus model)
+        {
+            return Json(_appointmentManager.UpdateStatus(model));
+        }
     }
 }

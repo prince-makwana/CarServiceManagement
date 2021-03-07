@@ -42,5 +42,10 @@ namespace CSM.BAL.ManagerClass
         {
             return _appointmentRepository.UpdateAppoinment(model);
         }
+
+        public string UpdateStatus(UpdateStatus model)
+        {
+            return _appointmentRepository.UpdateStatus(model);
+        }
     }
 }
