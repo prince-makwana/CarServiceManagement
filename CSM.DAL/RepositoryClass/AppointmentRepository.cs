@@ -115,7 +115,7 @@ namespace CSM.DAL.RepositoryClass
 
         }
 
-        public string UpdateStatus(UpdateStatus model)
+        public bool UpdateStatus(UpdateStatus model)
         {
             var appointment = _dbContext.tblAppointments.Find(model.Id);
 
@@ -124,11 +124,11 @@ namespace CSM.DAL.RepositoryClass
                 appointment.Status = model.Status;
 
                 _dbContext.SaveChanges();
-                return "Status Updated Successfully.";
+                return true;
             }
             else
             {
-                return "Something went wrong. Try after Sometime or Contact Admin.";
+                return false;
             }
         }
 
