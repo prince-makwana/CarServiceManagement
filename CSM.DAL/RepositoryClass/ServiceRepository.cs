@@ -90,6 +90,9 @@ namespace CSM.DAL.RepositoryClass
                 entity.FixPrice = model.FixPrice;
                 entity.Discount = model.Discount;
                 entity.Description = model.Description;
+                entity.SalesPart = model.SalesPart;
+                entity.PricePerUnit = model.PricePerUnit;
+                entity.CostType = model.CostType;
 
                 #endregion
                 

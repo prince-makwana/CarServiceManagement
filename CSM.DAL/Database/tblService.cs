@@ -31,6 +31,10 @@ namespace CSM.DAL.Database
         public string UpdatedBy { get; set; }
         public string UpdatedDate { get; set; }
         public int DealerId { get; set; }
+        public string CostType { get; set; }
+        public string SalesPart { get; set; }
+        public Nullable<int> Quanitity { get; set; }
+        public Nullable<float> PricePerUnit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblAppointmentService> tblAppointmentServices { get; set; }

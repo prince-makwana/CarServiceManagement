@@ -141,6 +141,10 @@
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="UpdatedDate" Type="nvarchar" MaxLength="100" />
           <Property Name="DealerId" Type="int" Nullable="false" />
+          <Property Name="CostType" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesPart" Type="nvarchar" MaxLength="50" />
+          <Property Name="Quanitity" Type="int" />
+          <Property Name="PricePerUnit" Type="real" />
         </EntityType>
         <EntityType Name="tblVehicles">
           <Key>
@@ -530,6 +534,10 @@
           <NavigationProperty Name="tblAppointmentServices" Relationship="Self.FK_tblAppointmentServices_tblServices" FromRole="tblServices" ToRole="tblAppointmentServices" />
           <Property Name="DealerId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="tblDealer" Relationship="AutomotiveDBModel.FK_tblServices_tblDealers" FromRole="tblService" ToRole="tblDealer" />
+          <Property Name="CostType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesPart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quanitity" Type="Int32" />
+          <Property Name="PricePerUnit" Type="Single" />
         </EntityType>
         <EntityType Name="tblVehicle">
           <Key>
@@ -894,6 +902,10 @@
           <EntitySetMapping Name="tblServices">
             <EntityTypeMapping TypeName="AutomotiveDBModel.tblService">
               <MappingFragment StoreEntitySet="tblServices">
+                <ScalarProperty Name="PricePerUnit" ColumnName="PricePerUnit" />
+                <ScalarProperty Name="Quanitity" ColumnName="Quanitity" />
+                <ScalarProperty Name="SalesPart" ColumnName="SalesPart" />
+                <ScalarProperty Name="CostType" ColumnName="CostType" />
                 <ScalarProperty Name="DealerId" ColumnName="DealerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

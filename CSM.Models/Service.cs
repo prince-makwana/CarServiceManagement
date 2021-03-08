@@ -19,6 +19,10 @@ namespace CSM.Models
         public string UpdatedBy { get; set; }
         public string UpdatedDate { get; set; }
         public int DealerId { get; set; }
+        public string CostType { get; set; }
+        public string SalesPart { get; set; }
+        public Nullable<int> Quanitity { get; set; }
+        public Nullable<float> PricePerUnit { get; set; }
         public string DealerName { get; set; }
     }
 }
