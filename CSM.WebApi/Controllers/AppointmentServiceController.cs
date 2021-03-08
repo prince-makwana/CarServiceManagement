@@ -46,7 +46,7 @@ namespace CSM.WebApi.Controllers
 
         [HttpPut]
         [Route("api/AppointmentService/UpdateAppointmentService")]
-        public IHttpActionResult UpdateAppointments([FromBody] AppointmentService model)
+        public IHttpActionResult UpdateAppointmentService([FromBody] AppointmentService model)
         {
             var appointmentService = _appointmentServiceManager.UpdateAppoinmentService(model);
 

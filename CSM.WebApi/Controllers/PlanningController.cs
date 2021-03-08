@@ -26,7 +26,7 @@ namespace CSM.WebApi.Controllers
         }
 
         [HttpGet]
-        [Route(" api/Planning/allPlannings")]
+        [Route("api/Planning/allPlannings")]
         public IHttpActionResult GetAllPlannings()
         {
             var plannings = _planningManager.GetAllPlanning();
@@ -35,6 +35,21 @@ namespace CSM.WebApi.Controllers
                 return Json("Data not available");
             }
             return Json(plannings);
+        }
+
+        [HttpPut]
+        [Route("api/Planning/UpdatePlanning")]
+        public IHttpActionResult UpdatePlanning([FromBody] Planning model)
+        {
+            var planning = _planningManager.UpdatePlanning(model);
+            if(planning == true)
+            {
+                return Ok("Updated Successfully");
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, "Something went wrong. Please try after sometime.");
+            }
         }
     }
 }

@@ -19,5 +19,6 @@ namespace CSM.Models
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public int DealerId { get; set; }
+        public string DealerName { get; set; }
     }
 }
