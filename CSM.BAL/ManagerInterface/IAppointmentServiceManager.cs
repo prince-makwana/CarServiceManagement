@@ -11,5 +11,6 @@ namespace CSM.BAL.ManagerInterface
     {
         string CreateAppointmentService(AppointmentService model);
         List<AppointmentService> GetAllAppointmentServices();
+        bool UpdateAppoinmentService(AppointmentService model);
     }
 }

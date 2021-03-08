@@ -26,5 +26,10 @@ namespace CSM.BAL.ManagerClass
         {
             return _appointmentServiceRepository.GetAllAppointmentServices();
         }
+
+        public bool UpdateAppoinmentService(AppointmentService model)
+        {
+            return _appointmentServiceRepository.UpdateAppoinmentService(model);
+        }
     }
 }

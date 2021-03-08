@@ -27,5 +27,10 @@ namespace CSM.BAL.ManagerClass
         {
             return _planningRepository.GetAllPlanning();
         }
+
+        public bool UpdatePlanning(Planning model)
+        {
+            return _planningRepository.UpdatePlanning(model);
+        }
     }
 }

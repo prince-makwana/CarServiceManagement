@@ -43,5 +43,21 @@ namespace CSM.WebApi.Controllers
         {
             return _appointmentServiceManager.CreateAppointmentService(model);
         }
+
+        [HttpPut]
+        [Route("api/AppointmentService/UpdateAppointmentService")]
+        public IHttpActionResult UpdateAppointments([FromBody] AppointmentService model)
+        {
+            var appointmentService = _appointmentServiceManager.UpdateAppoinmentService(model);
+
+            if(appointmentService == true)
+            {
+                return Ok("Updated Successfully");
+            }
+            else
+            {
+                return Content(HttpStatusCode.BadRequest, "Something Went Wrong. Please try after sometime.");
+            }
+        }
     }
 }

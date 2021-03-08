@@ -58,5 +58,43 @@ namespace CSM.DAL.RepositoryClass
             }
             return appointmentServiceList;
         }
+
+        public bool UpdateAppoinmentService(AppointmentService model)
+        {
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
+            //var mapper = config.CreateMapper();
+            var entity = _dbContext.tblAppointmentServices.Find(model.Id);
+            if (entity != null)
+            {
+                #region Mapping AppointmentService -> Database.tblAppointmentService
+
+                entity.AppointmentId = model.AppointmentId;
+                entity.ServiceId = model.ServiceId;
+                entity.CostType = model.CostType;
+                entity.SalesPart = model.SalesPart;
+                entity.Description = model.Description;
+                entity.Quantity = model.Quantity;
+                entity.PricePerUnit = model.PricePerUnit;
+                entity.Price = model.Price;
+                entity.Discount = model.Discount;
+                entity.FixPrice = model.FixPrice;
+
+                //entity.CreatedBy = model.CreatedBy;
+                //entity.CreatedDate = model.CreatedDate;
+
+                //entity.UpdateBy = model.UpdateBy;
+                entity.UpdatedDate = model.UpdatedDate;
+
+                #endregion
+
+                _dbContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }

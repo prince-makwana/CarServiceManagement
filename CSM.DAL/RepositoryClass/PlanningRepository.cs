@@ -68,5 +68,34 @@ namespace CSM.DAL.RepositoryClass
             }
             return planningList;
         }
+
+        public bool UpdatePlanning(Planning model)
+        {
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
+            //var mapper = config.CreateMapper();
+            var entity = _dbContext.tblPlannings.Find(model.Id);
+            if (entity != null)
+            {
+
+                #region Mapping Planning -> Database.tblPlanning
+
+                entity.AppointmentId = model.AppointmentId;
+                entity.AppointmentServiceId = model.AppointmentServiceId;
+                entity.MechanicId = model.MechanicId;
+                entity.StartDate = model.StartDate;
+                entity.EndDate = model.EndDate;
+                entity.Duration = model.Duration;
+
+        #endregion
+
+                _dbContext.SaveChanges();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
     }
 }
