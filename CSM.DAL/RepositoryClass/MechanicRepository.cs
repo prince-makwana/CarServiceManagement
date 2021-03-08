@@ -65,7 +65,12 @@ namespace CSM.DAL.RepositoryClass
             {
                 foreach (var item in mechanicEntities)
                 {
-                    Mechanic mechanic = mapper.Map<Mechanic> (item);
+                    Mechanic mechanic = mapper.Map<Mechanic>(item);
+
+                    var dealer = _dbContext.tblDealers.Select(m => new { m.DealerName, m.Id }).
+                        FirstOrDefault(m => m.Id == item.DealerId);
+
+                    mechanic.DealerName = dealer.DealerName;
                     mechanicList.Add(mechanic);
                 }
             }

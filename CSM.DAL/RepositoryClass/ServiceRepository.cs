@@ -65,6 +65,12 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in serviceEntities)
                 {
                     Service service = mapper.Map<Service>(item);
+
+                    var dealer = _dbContext.tblDealers.Select(s => new { s.DealerName, s.Id }).
+                        FirstOrDefault(s => s.Id == item.DealerId);
+
+                    service.DealerName = dealer.DealerName;
+                
                     serviceList.Add(service);
                 }
             }
