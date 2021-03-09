@@ -60,11 +60,11 @@ namespace CSM.WebApi.Controllers
 
             if (entity != null)
             {
-                return Json(entity);
+                return Content(HttpStatusCode.OK, entity);
             }
             else
             {
-                return Json("No Data Found. Licence Plate not exists.");
+                return Content(HttpStatusCode.NotFound, "No Data Found. Licence Plate not exists.");
             }
         }
 

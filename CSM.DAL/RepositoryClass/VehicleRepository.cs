@@ -111,10 +111,23 @@ namespace CSM.DAL.RepositoryClass
 
 
                     #endregion
+
+                    return customerVehicle;
                 }
+                else
+                {
+                    customerVehicle = null;
+                    return customerVehicle;
+                }
+
+            }
+            else
+            {
+                customerVehicle = null;
+                return customerVehicle;
             }
             
-            return customerVehicle;
+            
         }
 
         public string UpdateVehicle(Vehicle model)
