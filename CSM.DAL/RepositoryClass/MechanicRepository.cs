@@ -67,8 +67,24 @@ namespace CSM.DAL.RepositoryClass
                 {
                     Mechanic mechanic = mapper.Map<Mechanic>(item);
 
+                    #region  DeleteButton enable-disable
+
                     var dealer = _dbContext.tblDealers.Select(m => new { m.DealerName, m.Id }).
                         FirstOrDefault(m => m.Id == item.DealerId);
+
+                    var planning = _dbContext.tblPlannings.Any(p => p.MechanicId == mechanic.Id);
+
+                    if(planning == true)
+                    {
+                        mechanic.DeleteButton = false;
+                    }
+
+                    else
+                    {
+                        mechanic.DeleteButton = true;
+                    }
+
+                    #endregion
 
                     mechanic.DealerName = dealer.DealerName;
                     mechanicList.Add(mechanic);

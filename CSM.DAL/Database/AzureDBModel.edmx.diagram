@@ -5,8 +5,8 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="b799a1ca30634f3eb721029056cefda3" Name="Diagram1">
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointment" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointmentService" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointment" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="AutomotiveDBModel.tblAppointmentService" Width="3.125" PointX="5.25" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AutomotiveDBModel.tblCustomer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="AutomotiveDBModel.tblDealer" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
         <EntityTypeShape EntityType="AutomotiveDBModel.tblDealersMechanic" Width="1.5" PointX="5.25" PointY="12.25" IsExpanded="true" />

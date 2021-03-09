@@ -20,5 +20,6 @@ namespace CSM.Models
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public int DealerId { get; set; }
         public string DealerName { get; set; }
+        public bool DeleteButton { get; set; }
     }
 }

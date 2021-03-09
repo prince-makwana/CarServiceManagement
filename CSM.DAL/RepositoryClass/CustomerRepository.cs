@@ -66,7 +66,7 @@ namespace CSM.DAL.RepositoryClass
                 {
                     Customer customer = mapper.Map<Customer>(item);
 
-                    #region DeleteButton enable-disable Login
+                    #region DeleteButton enable-disable
 
                     var vehicle = _dbContext.tblVehicles.Any(v => v.CustomerId == customer.Id);
 

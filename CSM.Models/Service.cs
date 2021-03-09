@@ -24,5 +24,6 @@ namespace CSM.Models
         public Nullable<int> Quanitity { get; set; }
         public Nullable<float> PricePerUnit { get; set; }
         public string DealerName { get; set; }
+        public bool DeleteButton { get; set; }
     }
 }

@@ -69,6 +69,20 @@ namespace CSM.DAL.RepositoryClass
                     var dealer = _dbContext.tblDealers.Select(s => new { s.DealerName, s.Id }).
                         FirstOrDefault(s => s.Id == item.DealerId);
 
+                    #region DeleteButton Enable-Disable
+
+                    var appointment = _dbContext.tblAppointmentServices.Any(a => a.ServiceId == service.Id);
+                    if(appointment == true)
+                    {
+                        service.DeleteButton = false;
+                    }
+                    else
+                    {
+                        service.DeleteButton = true;
+                    }
+
+                    #endregion
+
                     service.DealerName = dealer.DealerName;
                 
                     serviceList.Add(service);

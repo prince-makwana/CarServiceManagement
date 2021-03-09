@@ -52,8 +52,24 @@ namespace CSM.DAL.RepositoryClass
             {
                 foreach (var item in appointmentServiceEntities)
                 {
-                    AppointmentService appoinment = mapper.Map<AppointmentService>(item);
-                    appointmentServiceList.Add(appoinment);
+                    AppointmentService appService = mapper.Map<AppointmentService>(item);
+
+                    #region DeleteButton enable-disable
+
+                    var planning = _dbContext.tblPlannings.Any(p => p.AppointmentServiceId == appService.Id);
+
+                    if(planning == true)
+                    {
+                        appService.DeleteButton = false;
+                    }
+                    else
+                    {
+                        appService.DeleteButton = true; 
+                    }
+
+                    #endregion
+
+                    appointmentServiceList.Add(appService);
                 }
             }
             return appointmentServiceList;
