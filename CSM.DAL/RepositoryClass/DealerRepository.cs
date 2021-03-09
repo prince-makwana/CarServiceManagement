@@ -89,6 +89,35 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in dealerEntities)
                 {
                     Dealer dealer = mapper.Map<Dealer>(item);
+
+                    #region Delete Enable-Disable Button
+
+                    var service = _dbContext.tblServices.Any(s => s.DealerId == dealer.Id);
+                    var mechanic = _dbContext.tblMechanics.Any(m => m.DealerId == dealer.Id);
+
+                    if(service == true)
+                    {
+                        dealer.DeleteButton = false;
+                    }
+                    else if(mechanic == true)
+                    {
+                        dealer.DeleteButton = false;
+                    }
+                    else
+                    {
+                        var appointment = _dbContext.tblAppointments.Any(a => a.DealerId == dealer.Id);
+                        if(appointment == true)
+                        {
+                            dealer.DeleteButton = false;
+                        }
+                        else
+                        {
+                            dealer.DeleteButton = true;
+                        }
+                    }
+
+                    #endregion
+
                     dealerList.Add(dealer);
                 }
             }
