@@ -64,7 +64,7 @@ namespace CSM.WebApi.Controllers
             }
             else
             {
-                return Content(HttpStatusCode.NotFound, "No Data Found. Licence Plate not exists.");
+                return Content(HttpStatusCode.NotFound, entity);
             }
         }
 
