@@ -59,5 +59,12 @@ namespace CSM.WebApi.Controllers
                 return Content(HttpStatusCode.BadRequest, "Something Went Wrong. Please try after sometime.");
             }
         }
+
+        [HttpDelete]
+        [Route("api/AppointmentService/DeleteAppointmentServices/{id}")]
+        public string DeleteAppoinments(int id)
+        {
+            return _appointmentServiceManager.DeleteAppointmentService(id);
+        }
     }
 }

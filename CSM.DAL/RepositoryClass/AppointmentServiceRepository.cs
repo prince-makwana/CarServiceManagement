@@ -39,6 +39,18 @@ namespace CSM.DAL.RepositoryClass
             return "Plz try after Some time or Contact admin";
         }
 
+        public string DeleteAppointmentService(int id)
+        {
+            var entity = _dbContext.tblAppointmentServices.Where(a => a.Id == id).FirstOrDefault();
+            if (entity != null)
+            {
+                _dbContext.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
+                _dbContext.SaveChanges();
+                return "deleted successfully";
+            }
+            return "something went wrong plz try after some time.";
+        }
+
         public List<AppointmentService> GetAllAppointmentServices()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());

@@ -12,5 +12,6 @@ namespace CSM.DAL.RepositoryInterface
         string CreateAppointmentService(AppointmentService model);
         List<AppointmentService> GetAllAppointmentServices();
         bool UpdateAppoinmentService(AppointmentService model);
+        string DeleteAppointmentService(int id);
     }
 }

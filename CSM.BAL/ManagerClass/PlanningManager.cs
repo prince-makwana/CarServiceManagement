@@ -23,6 +23,11 @@ namespace CSM.BAL.ManagerClass
             return _planningRepository.CreatePlanning(model);
         }
 
+        public string DeletePlanning(int id)
+        {
+            return _planningRepository.DeletePlanning(id);
+        }
+
         public List<Planning> GetAllPlanning()
         {
             return _planningRepository.GetAllPlanning();
@@ -32,5 +37,6 @@ namespace CSM.BAL.ManagerClass
         {
             return _planningRepository.UpdatePlanning(model);
         }
+
     }
 }

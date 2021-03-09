@@ -51,5 +51,11 @@ namespace CSM.WebApi.Controllers
                 return Content(HttpStatusCode.BadRequest, "Something went wrong. Please try after sometime.");
             }
         }
+        [HttpDelete]
+        [Route("api/Planning/DeletePlannings/{id}")]
+        public string DeletePlannings(int id)
+        {
+            return _planningManager.DeletePlanning(id);
+        }
     }
 }

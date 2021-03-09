@@ -22,6 +22,11 @@ namespace CSM.BAL.ManagerClass
             return _appointmentServiceRepository.CreateAppointmentService(model);
         }
 
+        public string DeleteAppointmentService(int id)
+        {
+            return _appointmentServiceRepository.DeleteAppointmentService(id);
+        }
+
         public List<AppointmentService> GetAllAppointmentServices()
         {
             return _appointmentServiceRepository.GetAllAppointmentServices();

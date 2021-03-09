@@ -12,5 +12,6 @@ namespace CSM.BAL.ManagerInterface
         string CreatePlanning(Planning model);
         List<Planning> GetAllPlanning();
         bool UpdatePlanning(Planning model);
+        string DeletePlanning(int id);
     }
 }

@@ -97,5 +97,17 @@ namespace CSM.DAL.RepositoryClass
             }
 
         }
+
+        public string DeletePlanning(int id)
+        {
+            var entity = _dbContext.tblPlannings.Where(p => p.Id == id).FirstOrDefault();
+            if (entity != null)
+            {
+                _dbContext.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
+                _dbContext.SaveChanges();
+                return "deleted successfully";
+            }
+            return "something went wrong plz try after some time.";
+        }
     }
 }
