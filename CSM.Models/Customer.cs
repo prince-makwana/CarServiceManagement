@@ -22,6 +22,7 @@ namespace CSM.Models
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string Email { get; set; }
+        public bool DeleteButton { get; set; }
 
     }
 }

@@ -65,6 +65,31 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in customerEntities)
                 {
                     Customer customer = mapper.Map<Customer>(item);
+
+                    #region DeleteButton enable-disable Login
+
+                    var vehicle = _dbContext.tblVehicles.Any(v => v.CustomerId == customer.Id);
+
+                    if (vehicle == true)
+                    {
+                        customer.DeleteButton = false;
+                    }
+                    else
+                    {
+                        var appointment = _dbContext.tblAppointments.Any(a => a.CustomerId == customer.Id);
+
+                        if (appointment == true)
+                        {
+                            customer.DeleteButton = false;
+                        }
+                        else
+                        {
+                            customer.DeleteButton = true;
+                        }
+                    }
+
+                    #endregion
+
                     customerList.Add(customer);
                 }
             }
