@@ -22,7 +22,7 @@ namespace CSM.DAL.RepositoryClass
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
-        public string CreateAppoinment(Appointment model)
+        public Appointment CreateAppoinment(Appointment model)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
             var mapper = config.CreateMapper();
@@ -33,10 +33,12 @@ namespace CSM.DAL.RepositoryClass
                 appoinment.CreatedDate = DateTime.Now;
                 _dbContext.tblAppointments.Add(appoinment);
                 _dbContext.SaveChanges();
-                return "Created Succesfully";
+                model.Id = appoinment.Id;
+                return model;
             }
 
-            return "Plz try after Some time or Contact admin";
+            model = null;
+            return model;
         }
 
         public string DeleteAppoinment(int id)

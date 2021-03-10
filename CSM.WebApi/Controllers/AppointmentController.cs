@@ -32,7 +32,7 @@ namespace CSM.WebApi.Controllers
         }
         [HttpPost]
         [Route("api/Appoinment/CreateAppoinments")]
-        public string CreateAppoinments([FromBody] Appointment model)
+        public Appointment CreateAppoinments([FromBody] Appointment model)
         {
             return _appointmentManager.CreateAppoinment(model);
         }
