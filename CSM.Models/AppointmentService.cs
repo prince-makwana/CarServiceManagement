@@ -11,6 +11,8 @@ namespace CSM.Models
         public int Id { get; set; }
         public int AppointmentId { get; set; }
         public int ServiceId { get; set; }
+
+        public string ServiceName{ get; set; }
         public string CostType { get; set; }
         public string SalesPart { get; set; }
         public string Description { get; set; }
