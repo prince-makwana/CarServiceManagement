@@ -22,10 +22,11 @@ namespace CSM.DAL.RepositoryClass
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
-        public Appointment CreateAppoinment(Appointment model)
+        public string CreateAppoinment(Appointment model)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
             var mapper = config.CreateMapper();
+            string appId;
             if(model!= null)
             {
                 var appoinment = mapper.Map<Database.tblAppointment>(model);
@@ -33,12 +34,12 @@ namespace CSM.DAL.RepositoryClass
                 appoinment.CreatedDate = DateTime.Now;
                 _dbContext.tblAppointments.Add(appoinment);
                 _dbContext.SaveChanges();
-                model.Id = appoinment.Id;
-                return model;
+                appId = appoinment.Id.ToString();
+                return appId;
             }
 
-            model = null;
-            return model;
+            appId = null;
+            return appId;
         }
 
         public string DeleteAppoinment(int id)
@@ -97,12 +98,9 @@ namespace CSM.DAL.RepositoryClass
 
         public string UpdateAppoinment(Appointment model)
         {
-            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
-            //var mapper = config.CreateMapper();
             var entity = _dbContext.tblAppointments.Find(model.Id);
             if(entity != null)
             {
-                //entity = mapper.Map<Database.tblAppointment>(model);
                 #region Mapping Appointment -> Database.tblAppointment
                 //entity.CustomerId = model.CustomerId;
                 //entity.LicencePlate = model.LicencePlate;

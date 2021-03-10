@@ -18,7 +18,7 @@ namespace CSM.BAL.ManagerClass
             _appointmentRepository = appointmentRepository;
         }
 
-        public Appointment CreateAppoinment(Appointment model)
+        public string CreateAppoinment(Appointment model)
         {
             return _appointmentRepository.CreateAppoinment(model);
         }

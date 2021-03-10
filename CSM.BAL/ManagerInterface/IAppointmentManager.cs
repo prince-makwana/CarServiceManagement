@@ -10,7 +10,7 @@ namespace CSM.BAL.ManagerInterface
     public interface IAppointmentManager
     {
         List<Appointment> GetAllAppoinment();
-        Appointment CreateAppoinment(Appointment model);
+        string CreateAppoinment(Appointment model);
         string UpdateAppoinment(Appointment model);
         string DeleteAppoinment(int id);
         AppointmentTracker GetAppointmentTracker(int id);
