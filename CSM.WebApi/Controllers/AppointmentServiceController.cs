@@ -66,5 +66,12 @@ namespace CSM.WebApi.Controllers
         {
             return _appointmentServiceManager.DeleteAppointmentService(id);
         }
+
+        [HttpGet]
+        [Route("api/AppointmentService/GetAppServicesByAppId/{id}")]
+        public List<AppointmentService> GetAppServicesByAppId(int id)
+        {
+            return _appointmentServiceManager.getAppointmentServiceByAppointmentId(id);
+        }
     }
 }

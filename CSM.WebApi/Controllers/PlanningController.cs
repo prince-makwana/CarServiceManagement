@@ -57,5 +57,12 @@ namespace CSM.WebApi.Controllers
         {
             return _planningManager.DeletePlanning(id);
         }
+
+        [HttpGet]
+        [Route("api/Planning/GetPlanningByAppId/{id}")]
+        public List<Planning> GetPlanningByAppId(int id)
+        {
+            return _planningManager.getPlanningByAppointmentId(id);
+        }
     }
 }

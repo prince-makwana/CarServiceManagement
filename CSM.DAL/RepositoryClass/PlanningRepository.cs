@@ -71,8 +71,6 @@ namespace CSM.DAL.RepositoryClass
 
         public bool UpdatePlanning(Planning model)
         {
-            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
-            //var mapper = config.CreateMapper();
             var entity = _dbContext.tblPlannings.Find(model.Id);
             if (entity != null)
             {
@@ -108,6 +106,33 @@ namespace CSM.DAL.RepositoryClass
                 return "deleted successfully";
             }
             return "something went wrong plz try after some time.";
+        }
+
+        public List<Planning> getPlanningByAppointmentId(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());
+            var mapper = config.CreateMapper();
+
+            List<Planning> planningList = new List<Planning>();
+
+            var planning = _dbContext.tblPlannings.Where(p => p.AppointmentId == id).ToList();
+
+            if (planning.Count() == 0)
+            {
+                planningList = null;
+                return planningList;
+            }
+            else
+            {
+                foreach (var item in planning)
+                {
+                    Planning plan = mapper.Map<Planning>(item);
+                    planningList.Add(plan);
+                }
+
+                return planningList;
+            }
+
         }
     }
 }

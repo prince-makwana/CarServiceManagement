@@ -13,5 +13,6 @@ namespace CSM.BAL.ManagerInterface
         List<AppointmentService> GetAllAppointmentServices();
         bool UpdateAppoinmentService(AppointmentService model);
         string DeleteAppointmentService(int id);
+        List<AppointmentService> getAppointmentServiceByAppointmentId(int id);
     }
 }

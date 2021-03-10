@@ -89,8 +89,6 @@ namespace CSM.DAL.RepositoryClass
 
         public bool UpdateAppoinmentService(AppointmentService model)
         {
-            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Appointment, Database.tblAppointment>());
-            //var mapper = config.CreateMapper();
             var entity = _dbContext.tblAppointmentServices.Find(model.Id);
             if (entity != null)
             {
@@ -121,6 +119,33 @@ namespace CSM.DAL.RepositoryClass
             else
             {
                 return false;
+            }
+
+        }
+
+        public List<AppointmentService> getAppointmentServiceByAppointmentId(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());
+            var mapper = config.CreateMapper();
+
+            List<AppointmentService> appServiceList = new List<AppointmentService>();
+
+            var appServices = _dbContext.tblAppointmentServices.Where(a => a.AppointmentId == id).ToList();
+
+            if(appServices.Count() == 0)
+            {
+                appServiceList = null;
+                return appServiceList;
+            }
+            else
+            {
+                foreach (var item in appServices)
+                {
+                    AppointmentService appService = mapper.Map<AppointmentService>(item);
+                    appServiceList.Add(appService);
+                }
+
+                return appServiceList;
             }
 
         }

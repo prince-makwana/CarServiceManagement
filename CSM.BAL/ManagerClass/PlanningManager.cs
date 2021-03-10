@@ -33,6 +33,11 @@ namespace CSM.BAL.ManagerClass
             return _planningRepository.GetAllPlanning();
         }
 
+        public List<Planning> getPlanningByAppointmentId(int id)
+        {
+            return _planningRepository.getPlanningByAppointmentId(id);
+        }
+
         public bool UpdatePlanning(Planning model)
         {
             return _planningRepository.UpdatePlanning(model);
