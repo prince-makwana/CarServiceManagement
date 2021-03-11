@@ -57,7 +57,7 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var customerEntities = _dbContext.tblCustomers.ToList();
-
+            var vehicleList = _dbContext.tblVehicles.ToList();
             List<Customer> customerList = new List<Customer>();
 
             if (customerEntities != null)
@@ -68,7 +68,7 @@ namespace CSM.DAL.RepositoryClass
 
                     #region DeleteButton enable-disable
 
-                    var vehicle = _dbContext.tblVehicles.Any(v => v.CustomerId == customer.Id);
+                    var vehicle = vehicleList.Any(v => v.CustomerId == customer.Id);
 
                     if (vehicle == true)
                     {

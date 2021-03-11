@@ -57,6 +57,8 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var serviceEntities = _dbContext.tblServices.ToList();
+            var appointmentList = _dbContext.tblAppointmentServices.ToList();
+            var dealerList = _dbContext.tblDealers.ToList();
 
             List<Service> serviceList = new List<Service>();
 
@@ -66,12 +68,12 @@ namespace CSM.DAL.RepositoryClass
                 {
                     Service service = mapper.Map<Service>(item);
 
-                    var dealer = _dbContext.tblDealers.Select(s => new { s.DealerName, s.Id }).
+                    var dealer = dealerList.Select(s => new { s.DealerName, s.Id }).
                         FirstOrDefault(s => s.Id == item.DealerId);
 
                     #region DeleteButton Enable-Disable
 
-                    var appointment = _dbContext.tblAppointmentServices.Any(a => a.ServiceId == service.Id);
+                    var appointment = appointmentList.Any(a => a.ServiceId == service.Id);
                     if(appointment == true)
                     {
                         service.DeleteButton = false;

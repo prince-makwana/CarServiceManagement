@@ -81,7 +81,9 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var dealerEntities = _dbContext.tblDealers.ToList();
-
+            var appointmentList = _dbContext.tblAppointments.ToList();
+            var machanicList = _dbContext.tblMechanics.ToList();
+            var serviceList = _dbContext.tblServices.ToList();
             List<Dealer> dealerList = new List<Dealer>();
 
             if (dealerEntities != null)
@@ -92,10 +94,11 @@ namespace CSM.DAL.RepositoryClass
 
                     #region Delete Enable-Disable Button
 
-                    var service = _dbContext.tblServices.Any(s => s.DealerId == dealer.Id);
-                    var mechanic = _dbContext.tblMechanics.Any(m => m.DealerId == dealer.Id);
+                    var service = serviceList.Any(s => s.DealerId == dealer.Id);
+                    var mechanic = machanicList.Any(m => m.DealerId == dealer.Id);
+                    
 
-                    if(service == true)
+                    if (service == true)
                     {
                         dealer.DeleteButton = false;
                     }
@@ -105,7 +108,7 @@ namespace CSM.DAL.RepositoryClass
                     }
                     else
                     {
-                        var appointment = _dbContext.tblAppointments.Any(a => a.DealerId == dealer.Id);
+                        var appointment = appointmentList.Any(a => a.DealerId == dealer.Id);
                         if(appointment == true)
                         {
                             dealer.DeleteButton = false;

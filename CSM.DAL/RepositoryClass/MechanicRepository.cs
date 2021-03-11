@@ -58,7 +58,8 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var mechanicEntities = _dbContext.tblMechanics.ToList();
-
+            var planningList = _dbContext.tblPlannings.ToList();
+            var dealerList = _dbContext.tblDealers.ToList();
             List<Mechanic> mechanicList = new List<Mechanic>();
 
             if (mechanicEntities != null)
@@ -69,10 +70,10 @@ namespace CSM.DAL.RepositoryClass
 
                     #region  DeleteButton enable-disable
 
-                    var dealer = _dbContext.tblDealers.Select(m => new { m.DealerName, m.Id }).
+                    var dealer = dealerList.Select(m => new { m.DealerName, m.Id }).
                         FirstOrDefault(m => m.Id == item.DealerId);
 
-                    var planning = _dbContext.tblPlannings.Any(p => p.MechanicId == mechanic.Id);
+                    var planning = planningList.Any(p => p.MechanicId == mechanic.Id);
 
                     if(planning == true)
                     {

@@ -139,6 +139,7 @@
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.8.19.0.28253\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.8.19.0.28253\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Database\AzureDBModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

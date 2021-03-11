@@ -57,6 +57,7 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var appointmentServiceEntities = _dbContext.tblAppointmentServices.ToList();
+            var planningList = _dbContext.tblPlannings.ToList();
 
             List<AppointmentService> appointmentServiceList = new List<AppointmentService>();
 
@@ -68,7 +69,7 @@ namespace CSM.DAL.RepositoryClass
 
                     #region DeleteButton enable-disable
 
-                    var planning = _dbContext.tblPlannings.Any(p => p.AppointmentServiceId == appService.Id);
+                    var planning = planningList.Any(p => p.AppointmentServiceId == appService.Id);
 
                     if(planning == true)
                     {
