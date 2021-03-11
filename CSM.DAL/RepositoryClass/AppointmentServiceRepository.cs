@@ -26,6 +26,7 @@ namespace CSM.DAL.RepositoryClass
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<AppointmentService, Database.tblAppointmentService>());
             var mapper = config.CreateMapper();
+            string appservice;
             if (model != null)
             {
                 var appointmentService = mapper.Map<Database.tblAppointmentService>(model);
@@ -33,10 +34,11 @@ namespace CSM.DAL.RepositoryClass
                 appointmentService.CreatedDate = DateTime.Now;
                 _dbContext.tblAppointmentServices.Add(appointmentService);
                 _dbContext.SaveChanges();
-                return "Created Succesfully";
+                appservice = appointmentService.Id.ToString();
+                return appservice;
             }
-
-            return "Plz try after Some time or Contact admin";
+            appservice = "Something Went Wrong";
+            return appservice;
         }
 
         public string DeleteAppointmentService(int id)
@@ -67,6 +69,8 @@ namespace CSM.DAL.RepositoryClass
                 {
                     AppointmentService appService = mapper.Map<AppointmentService>(item);
 
+                    var ServiceName = _dbContext.tblServices.FirstOrDefault(s => s.Id == appService.ServiceId);
+                    appService.ServiceName = ServiceName.Name;
                     #region DeleteButton enable-disable
 
                     var planning = planningList.Any(p => p.AppointmentServiceId == appService.Id);

@@ -26,14 +26,18 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
             if (model != null)
             {
-                var vehicle = mapper.Map<Database.tblVehicle>(model);
+                if (!isVehicleAvailable(model.LicencePlate))
+                {
+                    var vehicle = mapper.Map<Database.tblVehicle>(model);
 
-                vehicle.CreatedBy = model.CreatedBy;
-                vehicle.CreatedDate = DateTime.Now;
+                    vehicle.CreatedBy = model.CreatedBy;
+                    vehicle.CreatedDate = DateTime.Now;
 
-                _dbContext.tblVehicles.Add(vehicle);
-                _dbContext.SaveChanges();
-                return "Created Succesfully";
+                    _dbContext.tblVehicles.Add(vehicle);
+                    _dbContext.SaveChanges();
+                    return "Created Succesfully";
+                }
+                return "Vehicle is Available";
             }
 
             return "Plz try after Some time or Contact admin";
@@ -190,6 +194,14 @@ namespace CSM.DAL.RepositoryClass
             }
 
             return vehicleList;
+        }
+
+
+        private bool isVehicleAvailable(string LicencePlate)
+        {
+            bool isAvail = _dbContext.tblVehicles.Any(v => v.LicencePlate == LicencePlate);
+
+            return isAvail;
         }
     }
 }

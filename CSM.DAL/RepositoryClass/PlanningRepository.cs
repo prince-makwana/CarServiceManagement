@@ -37,9 +37,9 @@ namespace CSM.DAL.RepositoryClass
 
                 if(id != null)
                 {
-                    planning.Duration = DateTime.Now;
-                    planning.AppointmentServiceId = id;
+                    //planning.AppointmentServiceId = id;
 
+                   
                     _dbContext.tblPlannings.Add(planning);
                     _dbContext.SaveChanges();
                     return "Created Succesfully";
