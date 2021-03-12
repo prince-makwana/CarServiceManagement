@@ -26,7 +26,7 @@ namespace CSM.DAL.Database
         public string CostType { get; set; }
         public string SalesPart { get; set; }
         public string Description { get; set; }
-        public int Quantity { get; set; }
+        public Nullable<decimal> Quantity { get; set; }
         public float PricePerUnit { get; set; }
         public float Price { get; set; }
         public float Discount { get; set; }

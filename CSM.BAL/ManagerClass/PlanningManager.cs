@@ -18,7 +18,7 @@ namespace CSM.BAL.ManagerClass
             _planningRepository = planningRepository;
         }
 
-        public string CreatePlanning(Planning model)
+        public bool CreatePlanning(Planning model)
         {
             return _planningRepository.CreatePlanning(model);
         }

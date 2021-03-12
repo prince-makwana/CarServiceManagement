@@ -14,7 +14,7 @@ namespace CSM.Models
         public int AppointmentServiceId { get; set; }
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
-        public Nullable<System.DateTime> Duration { get; set; }
+        public Nullable<decimal> Duration { get; set; }
 
     }
 }

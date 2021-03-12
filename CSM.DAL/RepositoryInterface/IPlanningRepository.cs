@@ -9,7 +9,7 @@ namespace CSM.DAL.RepositoryInterface
 {
     public interface IPlanningRepository
     {
-        string CreatePlanning(Planning model);
+        bool CreatePlanning(Planning model);
         List<Planning> GetAllPlanning();
         bool UpdatePlanning(Planning model);
         string DeletePlanning(int id);

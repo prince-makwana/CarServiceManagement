@@ -20,9 +20,18 @@ namespace CSM.WebApi.Controllers
 
         [HttpPost]
         [Route("api/Planning/CreatePlanning")]
-        public string CreatePlanning([FromBody] Planning model)
+        public IHttpActionResult CreatePlanning([FromBody] Planning model)
         {
-            return _planningManager.CreatePlanning(model);
+            var planning = _planningManager.CreatePlanning(model);
+
+            if (planning)
+            {
+                return Json("Appointment Planned successfully.");
+            }
+            else
+            {
+                return Json("Mechanic is not Available.");
+            }
         }
 
         [HttpGet]

@@ -20,7 +20,7 @@ namespace CSM.DAL.RepositoryClass
             //_dbContext = new Database.ServiceBookingDBEntities();
         }
 
-        public string CreatePlanning(Planning model)
+        public bool CreatePlanning(Planning model)
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Planning, Database.tblPlanning>());
             var mapper = config.CreateMapper();
@@ -31,7 +31,7 @@ namespace CSM.DAL.RepositoryClass
                 #region Finding AppointmentServiceId from AppointmentId
 
                 var id = _dbContext.tblAppointmentServices.
-                    First(a => a.AppointmentId == model.AppointmentId).Id;
+                    FirstOrDefault(a => a.AppointmentId == model.AppointmentId).Id;
 
                 #endregion
 
@@ -42,11 +42,11 @@ namespace CSM.DAL.RepositoryClass
                    
                     _dbContext.tblPlannings.Add(planning);
                     _dbContext.SaveChanges();
-                    return "Created Succesfully";
+                    return true;
                 }
             }
 
-            return "Plz try after Some time or Contact admin";
+            return false;
         }
 
         public List<Planning> GetAllPlanning()

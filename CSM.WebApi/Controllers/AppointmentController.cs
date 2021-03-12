@@ -79,7 +79,7 @@ namespace CSM.WebApi.Controllers
         {
             var status = _appointmentManager.UpdateStatus(model);
 
-            if (status == true)
+            if (status)
             {
                 SendUpdateStatusEmail("radadiya77lalit77@gmail.com", model.Status, model.Id);
                 return Ok("Updated Successfully.");

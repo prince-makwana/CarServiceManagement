@@ -33,7 +33,7 @@ namespace CSM.DAL.Database
         public int DealerId { get; set; }
         public string CostType { get; set; }
         public string SalesPart { get; set; }
-        public string Quantity { get; set; }
+        public Nullable<decimal> Quantity { get; set; }
         public Nullable<float> PricePerUnit { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
