@@ -12,10 +12,39 @@ namespace CSM.BAL.ManagerClass
     public class AppointmentManager : IAppointmentManager
     {
         private readonly IAppointmentRepository _appointmentRepository;
+        private readonly IAppointmentServiceRepository _appointmentServiceRepository;
+        private readonly IPlanningRepository _planningRepository;
 
-        public AppointmentManager(IAppointmentRepository appointmentRepository)
+        public AppointmentManager(IAppointmentRepository appointmentRepository, 
+            IAppointmentServiceRepository appointmentServiceRepository, 
+            IPlanningRepository planningRepository)
         {
             _appointmentRepository = appointmentRepository;
+            _appointmentServiceRepository = appointmentServiceRepository;
+            _planningRepository = planningRepository;
+        }
+
+        public Appointment AppointmentEdit(int id)
+        {
+            Appointment appointment = new Appointment();
+
+            appointment = _appointmentRepository.GetAppointmentById(id);
+
+            if (appointment != null)
+            {
+                List<Planning> planningList = _planningRepository.getPlanningByAppointmentId(id);
+                List<AppointmentService> appointmentServiceList = _appointmentServiceRepository.getAppointmentServiceByAppointmentId(id);
+
+                appointment.appointmentServicesList = appointmentServiceList;
+                appointment.planningList = planningList;
+
+                return appointment;
+            }
+            else
+            {
+                appointment = null;
+                return appointment;
+            }
         }
 
         public string CreateAppoinment(Appointment model)

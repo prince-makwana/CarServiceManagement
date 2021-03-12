@@ -87,6 +87,15 @@ namespace CSM.WebApi.Controllers
             return Content(HttpStatusCode.NotFound, "Update Status Failed.");
         }
 
+        [HttpGet]
+        [Route("api/Appointment/AppointmentEdit/{id}")]
+        public IHttpActionResult AppointmentEdit(int id)
+        {
+            var appointment = _appointmentManager.AppointmentEdit(id);
+
+            return Json(appointment);
+        }
+
         [NonAction]
         public void SendUpdateStatusEmail(string EmailId, string Body, int id)
         {

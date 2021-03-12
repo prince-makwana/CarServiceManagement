@@ -31,5 +31,8 @@ namespace CSM.Models
         public string UpdatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public bool DeleteButton { get; set; }
+
+        public IList<AppointmentService> appointmentServicesList { get; set; }
+        public IList<Planning> planningList { get; set; }
     }
 }

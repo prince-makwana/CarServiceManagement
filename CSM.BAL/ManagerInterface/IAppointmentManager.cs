@@ -15,5 +15,7 @@ namespace CSM.BAL.ManagerInterface
         string DeleteAppoinment(int id);
         AppointmentTracker GetAppointmentTracker(int id);
         bool UpdateStatus(UpdateStatus model);
+
+        Appointment AppointmentEdit(int id);
     }
 }
