@@ -21,8 +21,32 @@ namespace CSM.BAL.ManagerClass
         }
         public string CreateAppointmentService(AppointmentService model)
         {
+            Appointment appointment = _appointmentRepository.GetAppointmentById(model.AppointmentId);
             
-            return _appointmentServiceRepository.CreateAppointmentService(model);
+            #region Calculate Price Logic
+
+            if(model.FixPrice != 0)
+            {
+                appointment.TotalPrice = appointment.TotalPrice + model.FixPrice;
+            }
+            else
+            {
+                var Discount = model.Price * (model.Discount / 100); 
+                appointment.TotalPrice = appointment.TotalPrice + (model.Price - Discount);
+            }
+
+            #endregion
+
+            bool res = _appointmentRepository.UpdateAppoinment(appointment);
+
+            if(res)
+            {
+                return _appointmentServiceRepository.CreateAppointmentService(model);
+            }
+            else
+            {
+                return "Please Try after sometime.";
+            }
         }
 
         public string DeleteAppointmentService(int id)
@@ -44,6 +68,5 @@ namespace CSM.BAL.ManagerClass
         {
             return _appointmentServiceRepository.UpdateAppoinmentService(model);
         }
-
     }
 }

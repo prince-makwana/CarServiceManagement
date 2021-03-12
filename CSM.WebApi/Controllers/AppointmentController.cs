@@ -40,7 +40,16 @@ namespace CSM.WebApi.Controllers
         [Route("api/Appoinment/UpdateAppoinments")]
         public string UpdateAppoinments([FromBody] Appointment model)
         {
-            return _appointmentManager.UpdateAppoinment(model);
+            bool res = _appointmentManager.UpdateAppoinment(model);
+
+            if(res)
+            {
+                return "Updated Successfully.";
+            }
+            else
+            {
+                return "Something wen wrong. Please try after Sometime.";
+            }
         }
         [HttpDelete]
         [Route("api/Appoinment/DeleteAppoinments/{id}")]

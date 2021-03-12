@@ -98,7 +98,27 @@ namespace CSM.DAL.RepositoryClass
             return appointmentList;
         }
 
-        public string UpdateAppoinment(Appointment model)
+        public Appointment GetAppointmentById(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointment, Appointment>());
+            var mapper = config.CreateMapper();
+
+            Appointment appointment = new Appointment();
+            var entity = _dbContext.tblAppointments.Find(id);
+
+            if (entity != null)
+            {
+                appointment = mapper.Map<Appointment>(entity);
+                return appointment;
+            }
+            else
+            {
+                appointment = null;
+                return appointment;
+            }
+        }
+
+        public bool UpdateAppoinment(Appointment model)
         {
             var entity = _dbContext.tblAppointments.Find(model.Id);
             if(entity != null)
@@ -130,11 +150,11 @@ namespace CSM.DAL.RepositoryClass
                 //_dbContext.Entry(entity).State = System.Data.Entity.EntityState.Modified;
 
                 _dbContext.SaveChanges();
-                return "updated Successfully";
+                return true;
             }
             else
             {
-                return "Something went wrong plz try after some time.";
+                return false;
             }
 
         }
@@ -229,5 +249,7 @@ namespace CSM.DAL.RepositoryClass
             }
 
         }
+
+        
     }
 }

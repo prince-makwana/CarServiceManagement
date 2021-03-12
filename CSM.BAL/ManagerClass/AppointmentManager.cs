@@ -38,7 +38,7 @@ namespace CSM.BAL.ManagerClass
             return _appointmentRepository.GetAppointmentTracker(id);
         }
 
-        public string UpdateAppoinment(Appointment model)
+        public bool UpdateAppoinment(Appointment model)
         {
             return _appointmentRepository.UpdateAppoinment(model);
         }
