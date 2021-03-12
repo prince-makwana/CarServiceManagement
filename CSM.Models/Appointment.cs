@@ -20,6 +20,7 @@ namespace CSM.Models
         public string Model { get; set; }
         public string Brand { get; set; }
         public int DealerId { get; set; }
+        public string DealerName { get; set; }
         public string Status { get; set; }
         public Nullable<System.DateTime> StartDate { get; set; }
         public Nullable<System.DateTime> EndDate { get; set; }
