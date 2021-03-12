@@ -9,7 +9,7 @@ namespace CSM.BAL.ManagerInterface
 {
     public interface IPlanningManager
     {
-        bool CreatePlanning(Planning model);
+        string CreatePlanning(Planning model);
         List<Planning> GetAllPlanning();
         bool UpdatePlanning(Planning model);
         string DeletePlanning(int id);

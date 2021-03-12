@@ -49,6 +49,13 @@ namespace CSM.DAL.RepositoryClass
             return false;
         }
 
+        public List<Planning> FilterPlanningByMechanicId(int Id)
+        {
+            var planningList = GetAllPlanning().Where(p => p.MechanicId == Id).ToList();
+
+            return planningList;
+        }
+
         public List<Planning> GetAllPlanning()
         {
             var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());

@@ -24,14 +24,7 @@ namespace CSM.WebApi.Controllers
         {
             var planning = _planningManager.CreatePlanning(model);
 
-            if (planning)
-            {
-                return Json("Appointment Planned successfully.");
-            }
-            else
-            {
-                return Json("Mechanic is not Available.");
-            }
+            return Json(planning);
         }
 
         [HttpGet]
@@ -51,7 +44,7 @@ namespace CSM.WebApi.Controllers
         public IHttpActionResult UpdatePlanning([FromBody] Planning model)
         {
             var planning = _planningManager.UpdatePlanning(model);
-            if(planning == true)
+            if(planning)
             {
                 return Ok("Updated Successfully");
             }

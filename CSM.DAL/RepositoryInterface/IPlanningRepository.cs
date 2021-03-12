@@ -14,5 +14,6 @@ namespace CSM.DAL.RepositoryInterface
         bool UpdatePlanning(Planning model);
         string DeletePlanning(int id);
         List<Planning> getPlanningByAppointmentId(int id);
+        List<Planning> FilterPlanningByMechanicId(int Id);
     }
 }

@@ -18,9 +18,40 @@ namespace CSM.BAL.ManagerClass
             _planningRepository = planningRepository;
         }
 
-        public bool CreatePlanning(Planning model)
+        public string CreatePlanning(Planning model)
         {
-            return _planningRepository.CreatePlanning(model);
+            List<Planning> planningList = _planningRepository.FilterPlanningByMechanicId(model.MechanicId);
+
+            var isMechanicAvailable = planningList.Any(p => model.StartDate >= p.StartDate && model.StartDate < p.EndDate);
+
+            if ((planningList.Count() == 0) || !isMechanicAvailable)
+            {
+                var res = _planningRepository.CreatePlanning(model);
+                if (res)
+                {
+                    return "Planning Created Successfully.";
+                }
+                else
+                {
+                    return "something went wrong. Please try after sometime.";
+                }
+            }
+            //else if(!isMechanicAvailable)
+            //{
+            //    var res = _planningRepository.CreatePlanning(model);
+            //    if (res)
+            //    {
+            //        return "Planning Created Successfully.";
+            //    }
+            //    else
+            //    {
+            //        return "something went wrong. Please try after sometime.";
+            //    }
+            //}
+            else
+            {
+                return "Mechanic is not Available. Choose other Date.";
+            }
         }
 
         public string DeletePlanning(int id)
