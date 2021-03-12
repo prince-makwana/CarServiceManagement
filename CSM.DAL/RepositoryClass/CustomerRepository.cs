@@ -111,8 +111,8 @@ namespace CSM.DAL.RepositoryClass
                 entity.ZipCode = model.ZipCode;
                 entity.City = model.City;
                 entity.Country = model.Country;
-                entity.Email = "123";
-                //entity.CustomerNo = model.CustomerNo;
+                entity.Email = model.Email;
+                entity.CustomerNo = model.CustomerNo;
                 //entity.CreatedBy = model.CustomerName;
                 //entity.CreatedDate = DateTime.Now;
                 //entity.UpdatedBy = model.UpdatedBy;

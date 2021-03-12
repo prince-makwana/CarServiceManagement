@@ -12,13 +12,16 @@ namespace CSM.BAL.ManagerClass
     public class AppointmentServiceManager : IAppointmentServiceManager
     {
         private readonly IAppointmentServiceRepository _appointmentServiceRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
 
-        public AppointmentServiceManager(IAppointmentServiceRepository appointmentServiceRepository)
+        public AppointmentServiceManager(IAppointmentServiceRepository appointmentServiceRepository, IAppointmentRepository appointmentRepository)
         {
             _appointmentServiceRepository = appointmentServiceRepository;
+            _appointmentRepository = appointmentRepository;
         }
         public string CreateAppointmentService(AppointmentService model)
         {
+            
             return _appointmentServiceRepository.CreateAppointmentService(model);
         }
 
@@ -41,5 +44,6 @@ namespace CSM.BAL.ManagerClass
         {
             return _appointmentServiceRepository.UpdateAppoinmentService(model);
         }
+
     }
 }
