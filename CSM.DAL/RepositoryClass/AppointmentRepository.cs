@@ -62,6 +62,7 @@ namespace CSM.DAL.RepositoryClass
             var appointmentEntities = _dbContext.tblAppointments.ToList();
             var appServiceList = _dbContext.tblAppointmentServices.ToList();
             var planningList = _dbContext.tblPlannings.ToList();
+            var dealerList = _dbContext.tblDealers.ToList();
 
             List<Appointment> appointmentList = new List<Appointment>();
 
@@ -75,6 +76,7 @@ namespace CSM.DAL.RepositoryClass
 
                     var appService = appServiceList.Any(a => a.AppointmentId == appointment.Id);
                     var planning = planningList.Any(p => p.AppointmentId == p.Id);
+                    appointment.DealerName = dealerList.FirstOrDefault(x => x.Id == appointment.DealerId).DealerName;
 
                     if (appService == true)
                     {
