@@ -29,13 +29,29 @@ namespace CSM.DAL.RepositoryClass
             string appservice;
             if (model != null)
             {
-                var appointmentService = mapper.Map<Database.tblAppointmentService>(model);
-                appointmentService.CreatedBy = model.CreatedBy;
-                appointmentService.CreatedDate = DateTime.Now;
-                _dbContext.tblAppointmentServices.Add(appointmentService);
-                _dbContext.SaveChanges();
-                appservice = appointmentService.Id.ToString();
-                return appservice;
+                var serviceEntity = _dbContext.tblServices.FirstOrDefault(s => s.Id == model.ServiceId);
+                if (serviceEntity != null)
+                {
+                    model.ServiceName = serviceEntity.Name;
+                    model.Description = serviceEntity.Description;
+                    model.CostType = serviceEntity.CostType;
+                    model.SalesPart = serviceEntity.SalesPart;
+                    model.Price = serviceEntity.Price;
+
+                    model.Discount = serviceEntity.Discount;
+                    model.Quantity = serviceEntity.Quantity;
+                    model.FixPrice = serviceEntity.FixPrice;
+                    
+
+
+                    var appointmentService = mapper.Map<Database.tblAppointmentService>(model);
+                    appointmentService.CreatedBy = model.CreatedBy;
+                    appointmentService.CreatedDate = DateTime.Now;
+                    _dbContext.tblAppointmentServices.Add(appointmentService);
+                    _dbContext.SaveChanges();
+                    appservice = appointmentService.Id.ToString();
+                    return appservice;
+                }
             }
             appservice = "Something Went Wrong";
             return appservice;
