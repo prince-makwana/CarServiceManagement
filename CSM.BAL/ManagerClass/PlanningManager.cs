@@ -12,10 +12,16 @@ namespace CSM.BAL.ManagerClass
     public class PlanningManager : IPlanningManager
     {
         private readonly IPlanningRepository _planningRepository;
+        private readonly IAppointmentRepository _appointmentRepository;
+        private readonly IAppointmentServiceRepository _appointmentServiceRepository;
 
-        public PlanningManager(IPlanningRepository planningRepository)
+        public PlanningManager(IPlanningRepository planningRepository, 
+            IAppointmentRepository appointmentRepository,
+            IAppointmentServiceRepository appointmentServiceRepository)
         {
             _planningRepository = planningRepository;
+            _appointmentRepository = appointmentRepository;
+            _appointmentServiceRepository = appointmentServiceRepository;
         }
 
         public string CreatePlanning(Planning model)
@@ -26,28 +32,71 @@ namespace CSM.BAL.ManagerClass
 
             if ((planningList.Count() == 0) || !isMechanicAvailable)
             {
-                var res = _planningRepository.CreatePlanning(model);
-                if (res)
+                #region Update Total Time, Start Date and Duration in Appointment Table
+
+                var appointment = _appointmentRepository.GetAppointmentById(model.AppointmentId);
+                //var appointmentService = _appointmentServiceRepository.GetAppointmentServiceById(model.AppointmentServiceId);
+
+                if(appointment.StartDate == null)
                 {
-                    return "Planning Created Successfully.";
+                    appointment.StartDate = model.StartDate;
+                }
+                appointment.TotalTime = appointment.TotalTime + model.Duration;
+
+                #region Filter Planning List By AppId => To set End Date in Appointment Table
+                
+                var planningByAppId = _planningRepository.getPlanningByAppointmentId(model.AppointmentId);
+
+                Nullable<DateTime> maxDate;
+
+                if (planningByAppId == null)
+                {
+                    maxDate = null;
                 }
                 else
                 {
-                    return "something went wrong. Please try after sometime.";
+                    maxDate = planningByAppId.Max(p => p.EndDate);
+
+                }
+                #endregion
+
+                #region Logic to Set End Date in Appointment Table
+
+                if ((maxDate < model.EndDate) || (appointment.EndDate == null))
+                {
+                    appointment.EndDate = model.EndDate;
+                }
+                else
+                {
+                    appointment.EndDate = maxDate;
+                }
+
+                #endregion
+
+
+
+                var resUpdateApp = _appointmentRepository.UpdateAppoinment(appointment);
+
+                #endregion
+
+                if (resUpdateApp)
+                { 
+
+                    var res = _planningRepository.CreatePlanning(model);
+                    if (res)
+                    {
+                        return "Planning Created Successfully.";
+                    }
+                    else
+                    {
+                        return "Something went wrong. Please try after sometime.";
+                    }
+                }
+                else
+                {
+                    return "Unable to create Plan.";
                 }
             }
-            //else if(!isMechanicAvailable)
-            //{
-            //    var res = _planningRepository.CreatePlanning(model);
-            //    if (res)
-            //    {
-            //        return "Planning Created Successfully.";
-            //    }
-            //    else
-            //    {
-            //        return "something went wrong. Please try after sometime.";
-            //    }
-            //}
             else
             {
                 return "Mechanic is not Available. Choose other Date.";

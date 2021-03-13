@@ -64,6 +64,11 @@ namespace CSM.BAL.ManagerClass
             return _appointmentServiceRepository.getAppointmentServiceByAppointmentId(id);
         }
 
+        public AppointmentService GetAppointmentServiceById(int id)
+        {
+            return _appointmentServiceRepository.GetAppointmentServiceById(id);
+        }
+
         public bool UpdateAppoinmentService(AppointmentService model)
         {
             return _appointmentServiceRepository.UpdateAppoinmentService(model);

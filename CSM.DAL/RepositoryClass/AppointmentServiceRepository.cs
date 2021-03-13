@@ -92,6 +92,26 @@ namespace CSM.DAL.RepositoryClass
             return appointmentServiceList;
         }
 
+        public AppointmentService GetAppointmentServiceById(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());
+            var mapper = config.CreateMapper();
+
+            AppointmentService appointmentService = new AppointmentService();
+            var entity = _dbContext.tblAppointmentServices.Find(id);
+
+            if (entity != null)
+            {
+                appointmentService = mapper.Map<AppointmentService>(entity);
+                return appointmentService;
+            }
+            else
+            {
+                appointmentService = null;
+                return appointmentService;
+            }
+        }
+
         public bool UpdateAppoinmentService(AppointmentService model)
         {
             var entity = _dbContext.tblAppointmentServices.Find(model.Id);
