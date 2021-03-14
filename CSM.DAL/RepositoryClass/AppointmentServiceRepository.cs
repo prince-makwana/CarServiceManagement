@@ -76,6 +76,7 @@ namespace CSM.DAL.RepositoryClass
 
             var appointmentServiceEntities = _dbContext.tblAppointmentServices.ToList();
             var planningList = _dbContext.tblPlannings.ToList();
+            var ServiceNameList = _dbContext.tblServices.ToList();
 
             List<AppointmentService> appointmentServiceList = new List<AppointmentService>();
 
@@ -85,13 +86,13 @@ namespace CSM.DAL.RepositoryClass
                 {
                     AppointmentService appService = mapper.Map<AppointmentService>(item);
 
-                    var ServiceName = _dbContext.tblServices.FirstOrDefault(s => s.Id == appService.ServiceId);
-                    appService.ServiceName = ServiceName.Name;
+                    
+                    appService.ServiceName = ServiceNameList.FirstOrDefault(s => s.Id == appService.ServiceId).Name;
                     #region DeleteButton enable-disable
 
                     var planning = planningList.Any(p => p.AppointmentServiceId == appService.Id);
 
-                    if(planning == true)
+                    if(planning)
                     {
                         appService.DeleteButton = false;
                     }
@@ -171,9 +172,10 @@ namespace CSM.DAL.RepositoryClass
 
             List<AppointmentService> appServiceList = new List<AppointmentService>();
 
-            var appServices = _dbContext.tblAppointmentServices.Where(a => a.AppointmentId == id).ToList();
+            //var appServices = _dbContext.tblAppointmentServices.Where(a => a.AppointmentId == id).ToList();
+            var appServices = GetAllAppointmentServices().Where(a => a.AppointmentId == id).ToList();
 
-            if(appServices.Count() == 0)
+            if (appServices.Count() == 0)
             {
                 appServiceList = null;
                 return appServiceList;
@@ -183,7 +185,7 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in appServices)
                 {
                     AppointmentService appService = mapper.Map<AppointmentService>(item);
-                    appService.ServiceName = item.tblService.Name;
+                    appService.ServiceName = item.ServiceName;
                     appServiceList.Add(appService);
                 }
 
