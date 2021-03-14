@@ -39,6 +39,27 @@ namespace CSM.DAL.RepositoryClass
             return "Plz try after Some time or Contact admin";
         }
 
+        public Service GetServiceById(int id)
+        {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblService, Service>());
+            var mapper = config.CreateMapper();
+
+            Service service = new Service();
+            var entity = _dbContext.tblServices.Find(id);
+
+            if (entity != null)
+            {
+                service = mapper.Map<Service>(entity);
+                return service;
+            }
+            else
+            {
+                service = null;
+                return service;
+            }
+        }
+
+
         public string DeleteService(int id)
         {
             var entity = _dbContext.tblServices.Where(s => s.Id == id).FirstOrDefault();

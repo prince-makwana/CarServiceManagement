@@ -14,5 +14,6 @@ namespace CSM.DAL.RepositoryInterface
         List<Service> GetAllServices();
         string UpdateService(Service model);
         List<Service> ServicesDropdown(int id);
+        Service GetServiceById(int id);
     }
 }

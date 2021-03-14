@@ -13,20 +13,44 @@ namespace CSM.BAL.ManagerClass
     {
         private readonly IAppointmentServiceRepository _appointmentServiceRepository;
         private readonly IAppointmentRepository _appointmentRepository;
+        private readonly IServiceRepository _serviceRepository;
 
-        public AppointmentServiceManager(IAppointmentServiceRepository appointmentServiceRepository, IAppointmentRepository appointmentRepository)
+        public AppointmentServiceManager(IAppointmentServiceRepository appointmentServiceRepository, IAppointmentRepository appointmentRepository, IServiceRepository serviceRepository)
         {
             _appointmentServiceRepository = appointmentServiceRepository;
             _appointmentRepository = appointmentRepository;
+            _serviceRepository = serviceRepository;
         }
         public string CreateAppointmentService(AppointmentService model)
         {
             Appointment appointment = _appointmentRepository.GetAppointmentById(model.AppointmentId);
-            
+            var serviceEntity = _serviceRepository.GetServiceById(model.ServiceId);
+
+            #region Mapping Service ----> AppointmentService
+
+            model.ServiceName = serviceEntity.Name;
+            model.Description = serviceEntity.Description;
+            model.CostType = serviceEntity.CostType;
+            model.SalesPart = serviceEntity.SalesPart;
+            model.Price = serviceEntity.Price;
+            model.Discount = serviceEntity.Discount;
+            model.FixPrice = serviceEntity.FixPrice;
+
+            model.Quantity = serviceEntity.Quantity;
+            model.CreatedBy = serviceEntity.CreatedBy;
+            model.CreatedDate = DateTime.Now;
+
+            #endregion
+            //Service GetServiceById
+
             #region Calculate Price Logic
 
-            if(model.FixPrice != 0)
+            if (model.FixPrice != 0)
             {
+                if (appointment.TotalPrice == null)
+                {
+                    appointment.TotalPrice = 0;
+                }
                 appointment.TotalPrice = appointment.TotalPrice + model.FixPrice;
             }
             else
