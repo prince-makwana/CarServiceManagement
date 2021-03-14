@@ -39,12 +39,13 @@ namespace CSM.DAL.RepositoryClass
                     model.Price = serviceEntity.Price;
 
                     model.Discount = serviceEntity.Discount;
-                    model.Quantity = serviceEntity.Quantity;
                     model.FixPrice = serviceEntity.FixPrice;
                     
 
 
                     var appointmentService = mapper.Map<Database.tblAppointmentService>(model);
+
+                    appointmentService.Quantity= serviceEntity.Quantity;
                     appointmentService.CreatedBy = model.CreatedBy;
                     appointmentService.CreatedDate = DateTime.Now;
                     _dbContext.tblAppointmentServices.Add(appointmentService);
@@ -89,9 +90,10 @@ namespace CSM.DAL.RepositoryClass
                     
                     appService.ServiceName = ServiceNameList.FirstOrDefault(s => s.Id == appService.ServiceId).Name;
                     #region DeleteButton enable-disable
+                    appService.Quantity = TimeSpan.FromHours((double)item.Quantity).ToString(@"hh\:mm");
 
                     var planning = planningList.Any(p => p.AppointmentServiceId == appService.Id);
-
+    
                     if(planning)
                     {
                         appService.DeleteButton = false;
@@ -141,7 +143,7 @@ namespace CSM.DAL.RepositoryClass
                 entity.CostType = model.CostType;
                 entity.SalesPart = model.SalesPart;
                 entity.Description = model.Description;
-                entity.Quantity = model.Quantity;
+                entity.Quantity = Convert.ToDecimal(model.Quantity);
                 entity.PricePerUnit = model.PricePerUnit;
                 entity.Price = model.Price;
                 entity.Discount = model.Discount;

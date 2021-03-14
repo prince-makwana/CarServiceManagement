@@ -16,7 +16,7 @@ namespace CSM.Models
         public string CostType { get; set; }
         public string SalesPart { get; set; }
         public string Description { get; set; }
-        public Nullable<decimal> Quantity { get; set; }
+        public string Quantity { get; set; }
         public float PricePerUnit { get; set; }
         public float Price { get; set; }
         public float Discount { get; set; }

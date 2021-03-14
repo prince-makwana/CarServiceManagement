@@ -30,7 +30,7 @@ namespace CSM.DAL.RepositoryClass
 
                 service.CreatedBy = model.CreatedBy;
                 service.CreatedDate = DateTime.Now;
-
+                service.Quantity = Convert.ToDecimal(TimeSpan.Parse(model.Quantity).TotalHours);
                 _dbContext.tblServices.Add(service);
                 _dbContext.SaveChanges();
                 return "Created Succesfully";
@@ -67,7 +67,7 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in serviceEntities)
                 {
                     Service service = mapper.Map<Service>(item);
-
+                    service.Quantity = TimeSpan.FromHours((double)item.Quantity).ToString(@"hh\:mm");
                     var dealer = dealerList.Select(s => new { s.DealerName, s.Id }).
                         FirstOrDefault(s => s.Id == item.DealerId);
 
@@ -109,9 +109,10 @@ namespace CSM.DAL.RepositoryClass
                 entity.SalesPart = model.SalesPart;
                 entity.PricePerUnit = model.PricePerUnit;
                 entity.CostType = model.CostType;
+                entity.Quantity = Convert.ToDecimal(TimeSpan.Parse(model.Quantity).TotalHours);
 
                 #endregion
-                
+
                 entity.UpdatedBy = model.UpdatedBy;
                 entity.UpdatedDate = DateTime.Now.ToString();
 

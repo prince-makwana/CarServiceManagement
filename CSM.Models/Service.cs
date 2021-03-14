@@ -21,7 +21,7 @@ namespace CSM.Models
         public int DealerId { get; set; }
         public string CostType { get; set; }
         public string SalesPart { get; set; }
-        public Nullable<decimal> Quantity { get; set; }
+        public string Quantity { get; set; }
         public Nullable<float> PricePerUnit { get; set; }
         public string DealerName { get; set; }
         public bool DeleteButton { get; set; }
