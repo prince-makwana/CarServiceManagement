@@ -183,6 +183,7 @@ namespace CSM.DAL.RepositoryClass
                 foreach (var item in appServices)
                 {
                     AppointmentService appService = mapper.Map<AppointmentService>(item);
+                    appService.ServiceName = item.tblService.Name;
                     appServiceList.Add(appService);
                 }
 
