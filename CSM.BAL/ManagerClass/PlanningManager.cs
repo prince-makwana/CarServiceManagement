@@ -35,16 +35,40 @@ namespace CSM.BAL.ManagerClass
                 #region Update Total Time, Start Date and Duration in Appointment Table
 
                 var appointment = _appointmentRepository.GetAppointmentById(model.AppointmentId);
-                //var appointmentService = _appointmentServiceRepository.GetAppointmentServiceById(model.AppointmentServiceId);
 
-                if(appointment.StartDate == null)
+                var appointmentService = _appointmentServiceRepository.GetAppointmentServiceById(model.AppointmentServiceId);
+                
+                //TimeSpan ts = TimeSpan.Parse(appointmentService.Quantity);
+
+                TimeSpan tempDuration = model.EndDate - model.StartDate;
+
+                // Calculating Duration from Planning ViewModel and Comparing it with AppService which is bigger will be allocated
+
+                //if (ts > tempDuration)           
+                //{
+                //    model.Duration = Convert.ToDecimal(ts.TotalHours);
+                //}
+                //else
+                //{
+                //    model.Duration = Convert.ToDecimal(tempDuration.TotalHours);
+                //}
+
+                model.Duration = Convert.ToDecimal(tempDuration.TotalHours);
+
+                if (appointment.StartDate == null)
                 {
                     appointment.StartDate = model.StartDate;
                 }
+
+                if (appointment.TotalTime == null)
+                {
+                    appointment.TotalTime = 0;
+                }
+
                 appointment.TotalTime = appointment.TotalTime + model.Duration;
 
                 #region Filter Planning List By AppId => To set End Date in Appointment Table
-                
+
                 var planningByAppId = _planningRepository.getPlanningByAppointmentId(model.AppointmentId);
 
                 Nullable<DateTime> maxDate;

@@ -74,8 +74,10 @@ namespace CSM.DAL.RepositoryClass
 
                     
                     appService.ServiceName = ServiceNameList.FirstOrDefault(s => s.Id == appService.ServiceId).Name;
-                    #region DeleteButton enable-disable
+
                     appService.Quantity = TimeSpan.FromHours((double)item.Quantity).ToString(@"hh\:mm");
+
+                    #region DeleteButton enable-disable
 
                     var planning = planningList.Any(p => p.AppointmentServiceId == appService.Id);
     
@@ -98,15 +100,15 @@ namespace CSM.DAL.RepositoryClass
 
         public AppointmentService GetAppointmentServiceById(int id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());
-            var mapper = config.CreateMapper();
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());
+            //var mapper = config.CreateMapper();
+            //AppointmentService appointmentService = new AppointmentService();
 
-            AppointmentService appointmentService = new AppointmentService();
-            var entity = _dbContext.tblAppointmentServices.Find(id);
+            AppointmentService appointmentService = GetAllAppointmentServices().FirstOrDefault(a => a.Id == id);
 
-            if (entity != null)
+            if (appointmentService != null)
             {
-                appointmentService = mapper.Map<AppointmentService>(entity);
+                
                 return appointmentService;
             }
             else
