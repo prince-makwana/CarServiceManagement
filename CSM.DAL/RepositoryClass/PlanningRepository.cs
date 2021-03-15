@@ -103,16 +103,22 @@ namespace CSM.DAL.RepositoryClass
 
         }
 
-        public string DeletePlanning(int id)
+        public Planning DeletePlanning(int id)
         {
+            Planning planning = new Planning();
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());
+            var mapper = config.CreateMapper();
+
             var entity = _dbContext.tblPlannings.Where(p => p.Id == id).FirstOrDefault();
             if (entity != null)
             {
+                planning = mapper.Map<Planning>(entity);
                 _dbContext.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
                 _dbContext.SaveChanges();
-                return "deleted successfully";
+                return planning;
             }
-            return "something went wrong plz try after some time.";
+            return null;
         }
 
         public List<Planning> getPlanningByAppointmentId(int id)

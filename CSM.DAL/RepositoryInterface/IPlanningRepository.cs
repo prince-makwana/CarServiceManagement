@@ -12,7 +12,7 @@ namespace CSM.DAL.RepositoryInterface
         bool CreatePlanning(Planning model);
         List<Planning> GetAllPlanning();
         bool UpdatePlanning(Planning model);
-        string DeletePlanning(int id);
+        Planning DeletePlanning(int id);
         List<Planning> getPlanningByAppointmentId(int id);
         List<Planning> FilterPlanningByMechanicId(int Id);
     }

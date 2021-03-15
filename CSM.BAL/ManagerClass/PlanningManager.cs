@@ -129,7 +129,32 @@ namespace CSM.BAL.ManagerClass
 
         public string DeletePlanning(int id)
         {
-            return _planningRepository.DeletePlanning(id);
+            Planning planning = _planningRepository.DeletePlanning(id);
+
+            Appointment appointment = _appointmentRepository.GetAppointmentById(planning.AppointmentId);
+
+            if(appointment.TotalTime == null)
+            {
+                appointment.TotalTime = 0;
+            }
+
+            if(planning.Duration == null)
+            {
+                planning.Duration = 0;
+            }
+
+            appointment.TotalTime = appointment.TotalTime - planning.Duration;
+
+            bool res = _appointmentRepository.UpdateAppoinment(appointment);
+
+            if (planning != null && res)
+            {
+                return "Deleted Successfully.";
+            }
+            else
+            {
+                return "Something went wrong. Please try after sometime.";
+            }
         }
 
         public List<Planning> GetAllPlanning()
