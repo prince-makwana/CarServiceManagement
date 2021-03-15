@@ -75,7 +75,37 @@ namespace CSM.BAL.ManagerClass
 
         public string DeleteAppointmentService(int id)
         {
-            return _appointmentServiceRepository.DeleteAppointmentService(id);
+            AppointmentService appService = _appointmentServiceRepository.DeleteAppointmentService(id);
+            var appointment = _appointmentRepository.GetAppointmentById(appService.AppointmentId);
+
+            #region Reduce Total Price from Appointment Table on Deletion of AppointmentService
+
+            if (appService.FixPrice != 0)
+            {
+                if (appointment.TotalPrice == null)
+                {
+                    appointment.TotalPrice = 0;
+                }
+                appointment.TotalPrice = appointment.TotalPrice - appService.FixPrice;
+            }
+            else
+            {
+                var Discount = appService.Price * (appService.Discount / 100);
+                appointment.TotalPrice = appointment.TotalPrice - (appService.Price - Discount);
+            }
+
+            #endregion
+
+            bool res = _appointmentRepository.UpdateAppoinment(appointment);
+
+            if (res && appService != null)
+            {
+                return "Deleted Successfully.";
+            }
+            else
+            {
+                return "Something wen wrong. Please try after sometime.";
+            }
         }
 
         public List<AppointmentService> GetAllAppointmentServices()

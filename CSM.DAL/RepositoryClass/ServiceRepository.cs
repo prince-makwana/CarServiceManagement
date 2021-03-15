@@ -22,11 +22,14 @@ namespace CSM.DAL.RepositoryClass
 
         public string CreateService(Service model)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Service, Database.tblService>());
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Service, Database.tblService>().ForMember(x => x.Quantity, y => y.Ignore()));
             var mapper = config.CreateMapper();
             if (model != null)
             {
+
                 var service = mapper.Map<Database.tblService>(model);
+
+                service.Quantity = Convert.ToDecimal(TimeSpan.Parse(model.Quantity).TotalHours);
 
                 service.CreatedBy = model.CreatedBy;
                 service.CreatedDate = DateTime.Now;

@@ -43,16 +43,26 @@ namespace CSM.DAL.RepositoryClass
             return appservice;
         }
 
-        public string DeleteAppointmentService(int id)
+        public AppointmentService DeleteAppointmentService(int id)
         {
+            AppointmentService appointmentService = new AppointmentService();
+
             var entity = _dbContext.tblAppointmentServices.Where(a => a.Id == id).FirstOrDefault();
+
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointmentService, AppointmentService>());
+            var mapper = config.CreateMapper();
+
+            appointmentService = mapper.Map<AppointmentService>(entity);
+
             if (entity != null)
             {
                 _dbContext.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
                 _dbContext.SaveChanges();
-                return "deleted successfully";
+                return appointmentService;
             }
-            return "something went wrong plz try after some time.";
+
+            appointmentService = null;
+            return null;
         }
 
         public List<AppointmentService> GetAllAppointmentServices()
