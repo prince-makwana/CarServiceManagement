@@ -133,6 +133,8 @@ namespace CSM.BAL.ManagerClass
 
             Appointment appointment = _appointmentRepository.GetAppointmentById(planning.AppointmentId);
 
+            List<Planning> planningList = _planningRepository.getPlanningByAppointmentId(planning.AppointmentId);
+
             if(appointment.TotalTime == null)
             {
                 appointment.TotalTime = 0;
@@ -141,6 +143,16 @@ namespace CSM.BAL.ManagerClass
             if(planning.Duration == null)
             {
                 planning.Duration = 0;
+            }
+
+            if(planningList.Count() == 0)
+            {
+                appointment.StartDate = null;
+                appointment.EndDate = null;
+            }
+            else
+            {
+                appointment.EndDate = planningList.Max(p => p.EndDate);
             }
 
             appointment.TotalTime = appointment.TotalTime - planning.Duration;
