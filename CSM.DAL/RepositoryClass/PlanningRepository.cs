@@ -62,14 +62,16 @@ namespace CSM.DAL.RepositoryClass
             var mapper = config.CreateMapper();
 
             var planningEntities = _dbContext.tblPlannings.ToList();
-
+            var mechanicName = _dbContext.tblMechanics.ToList();
             List<Planning> planningList = new List<Planning>();
 
             if (planningEntities != null)
             {
                 foreach (var item in planningEntities)
                 {
+
                     Planning planning = mapper.Map<Planning>(item);
+                    planning.MechanicName = mechanicName.FirstOrDefault(m => m.Id == planning.MechanicId).MechanicName;
                     planningList.Add(planning);
                 }
             }
@@ -123,29 +125,40 @@ namespace CSM.DAL.RepositoryClass
 
         public List<Planning> getPlanningByAppointmentId(int id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());
-            var mapper = config.CreateMapper();
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblPlanning, Planning>());
+            //var mapper = config.CreateMapper();
 
-            List<Planning> planningList = new List<Planning>();
+            //List<Planning> planningList = new List<Planning>();
 
-            var planning = _dbContext.tblPlannings.Where(p => p.AppointmentId == id).ToList();
+            //var planning = _dbContext.tblPlannings.Where(p => p.AppointmentId == id).ToList();
 
-            if (planning.Count() == 0)
+            //if (planning.Count() == 0)
+            //{
+            //    planningList = null;
+            //    return planningList;
+            //}
+            //else
+            //{
+            //    foreach (var item in planning)
+            //    {
+            //        Planning plan = mapper.Map<Planning>(item);
+            //        planningList.Add(plan);
+            //    }
+
+            //    return planningList;
+            //}
+
+            List<Planning> planningList = GetAllPlanning().Where(p => p.AppointmentId == id).ToList();
+
+            if(planningList == null)
             {
                 planningList = null;
                 return planningList;
             }
             else
             {
-                foreach (var item in planning)
-                {
-                    Planning plan = mapper.Map<Planning>(item);
-                    planningList.Add(plan);
-                }
-
                 return planningList;
             }
-
         }
     }
 }

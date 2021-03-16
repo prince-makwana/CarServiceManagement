@@ -15,6 +15,7 @@ namespace CSM.Models
         public System.DateTime StartDate { get; set; }
         public System.DateTime EndDate { get; set; }
         public Nullable<decimal> Duration { get; set; }
+        public string MechanicName{ get; set; }
 
     }
 }
