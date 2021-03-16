@@ -73,7 +73,7 @@ namespace CSM.BAL.ManagerClass
 
                 Nullable<DateTime> maxDate;
 
-                if (planningByAppId == null)
+                if (planningByAppId.Count() == 0)
                 {
                     maxDate = null;
                 }
