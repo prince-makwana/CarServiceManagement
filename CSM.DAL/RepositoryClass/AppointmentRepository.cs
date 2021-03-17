@@ -102,22 +102,26 @@ namespace CSM.DAL.RepositoryClass
 
         public Appointment GetAppointmentById(int id)
         {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointment, Appointment>());
-            var mapper = config.CreateMapper();
+            //var config = new MapperConfiguration(cfg => cfg.CreateMap<Database.tblAppointment, Appointment>());
+            //var mapper = config.CreateMapper();
 
-            Appointment appointment = new Appointment();
-            var entity = _dbContext.tblAppointments.Find(id);
+            //Appointment appointment = new Appointment();
+            //var entity = _dbContext.tblAppointments.Find(id);
 
-            if (entity != null)
-            {
-                appointment = mapper.Map<Appointment>(entity);
-                return appointment;
-            }
-            else
-            {
-                appointment = null;
-                return appointment;
-            }
+            //if (entity != null)
+            //{
+            //    appointment = mapper.Map<Appointment>(entity);
+            //    return appointment;
+            //}
+            //else
+            //{
+            //    appointment = null;
+            //    return appointment;
+            //}
+            List<Appointment> appList = GetAllAppoinment();
+            Appointment entity = appList.FirstOrDefault(a => a.Id == id);
+
+            return entity;
         }
 
         public bool UpdateAppoinment(Appointment model)
