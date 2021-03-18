@@ -103,13 +103,13 @@ namespace CSM.WebApi.Controllers
             var toEmail = new MailAddress(EmailId);
             var fromEmailPassword = "Gateway@123";
 
-            var trackingUrl = "http://localhost:4100/tracking/" + id;
+            var trackingUrl = "https://dev9431.d1dgp2pzgjkpir.amplifyapp.com/tracking/" + id;
 
             string subject = "Car Service Appointment Tracking Link";
 
             string body = "<p>" +
                 "Dear Customer," +
-                "<br><br>The Status of your Car Service is Pending. You can check the status update on this email: " +
+                "<br><br>The Status of your Car Service :  <b>"+ Body + " </b>. You can check the status update on this email: " +
                 "<a href=" + trackingUrl + ">" + trackingUrl + "</a>" +
                 "<br><br>Thanks & Regards," +
                 "<br> Mechanic." +
