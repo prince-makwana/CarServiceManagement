@@ -35,6 +35,7 @@ namespace CSM.DAL.Database
         public System.DateTime CreatedDate { get; set; }
         public string UpdateBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public bool IsAdditional { get; set; }
     
         public virtual tblAppointment tblAppointment { get; set; }
         public virtual tblService tblService { get; set; }

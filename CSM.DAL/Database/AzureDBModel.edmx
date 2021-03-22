@@ -50,6 +50,7 @@
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="UpdateBy" Type="nvarchar" MaxLength="100" />
           <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="IsAdditional" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCustomers">
           <Key>
@@ -427,6 +428,7 @@
           <NavigationProperty Name="tblAppointment" Relationship="Self.FK_tblAppointmentServices_tblAppointments" FromRole="tblAppointmentServices" ToRole="tblAppointments" />
           <NavigationProperty Name="tblService" Relationship="Self.FK_tblAppointmentServices_tblServices" FromRole="tblAppointmentServices" ToRole="tblServices" />
           <NavigationProperty Name="tblPlannings" Relationship="AutomotiveDBModel.FK_tblPlannings_tblAppointmentServices" FromRole="tblAppointmentService" ToRole="tblPlanning" />
+          <Property Name="IsAdditional" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="tblCustomer">
           <Key>
@@ -801,6 +803,7 @@
           <EntitySetMapping Name="tblAppointmentServices">
             <EntityTypeMapping TypeName="AutomotiveDBModel.tblAppointmentService">
               <MappingFragment StoreEntitySet="tblAppointmentServices">
+                <ScalarProperty Name="IsAdditional" ColumnName="IsAdditional" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="AppointmentId" ColumnName="AppointmentId" />
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
