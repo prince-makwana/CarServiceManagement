@@ -49,6 +49,8 @@
     <Compile Include="DealerMechanic.cs" />
     <Compile Include="DealerObj.cs" />
     <Compile Include="Mechanic.cs" />
+    <Compile Include="OrderModel.cs" />
+    <Compile Include="PaymentViewModel.cs" />
     <Compile Include="Planning.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AppointmentService.cs" />
