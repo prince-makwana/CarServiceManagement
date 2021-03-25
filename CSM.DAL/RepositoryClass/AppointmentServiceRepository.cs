@@ -140,11 +140,12 @@ namespace CSM.DAL.RepositoryClass
                 entity.CostType = model.CostType;
                 entity.SalesPart = model.SalesPart;
                 entity.Description = model.Description;
-                entity.Quantity = Convert.ToDecimal(model.Quantity);
+                entity.Quantity = Convert.ToDecimal(TimeSpan.Parse(model.Quantity).TotalHours);
                 entity.PricePerUnit = model.PricePerUnit;
                 entity.Price = model.Price;
                 entity.Discount = model.Discount;
                 entity.FixPrice = model.FixPrice;
+                entity.IsAdditional = model.IsAdditional;
 
                 //entity.CreatedBy = model.CreatedBy;
                 //entity.CreatedDate = model.CreatedDate;

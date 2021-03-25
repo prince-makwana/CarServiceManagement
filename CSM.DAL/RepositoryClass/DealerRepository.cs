@@ -144,6 +144,7 @@ namespace CSM.DAL.RepositoryClass
                 entity.Address = model.Address;
                 entity.Latitude = model.Latitude;
                 entity.Longitude = model.Longitude;
+                entity.Email = model.Email;
 
                 //entity.CreatedBy = model.CustomerName;
                 //entity.CreatedDate = DateTime.Now;
